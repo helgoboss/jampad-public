@@ -1,0 +1,468 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "https://jampad.app/schemas/jampad-space-export.schema.json",
+  "title": "Jam Pad Space Export",
+  "description": "The format in which Jam Pad exports a single space",
+  "$ref": "#/definitions/Space",
+  "definitions": {
+    "Space": {
+      "type": "object",
+      "title": "Space",
+      "description": "Contents of a single Jam Pad space that is not user/device-specific",
+      "properties": {
+        "customFieldsForFiles": {
+          "type": "array",
+          "description": "",
+          "items": {
+            "$ref": "#/definitions/CustomFieldsFor"
+          }
+        },
+        "customFieldsForMarkers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomFieldsFor"
+          }
+        },
+        "customItemTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomItemType"
+          }
+        },
+        "customItems": {
+          "$ref": "#/definitions/CustomItems"
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/File"
+          }
+        },
+        "markers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Marker"
+          }
+        },
+        "playlists": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Playlist"
+          }
+        },
+        "sheets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Sheet"
+          }
+        }
+      },
+      "required": []
+    },
+    "CustomFieldsFor": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "itemTypeId": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "position": {
+          "type": "integer"
+        },
+        "showInListView": {
+          "type": "boolean"
+        }
+      },
+      "required": [],
+      "title": "CustomFieldsFor"
+    },
+    "CustomItemType": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "customColor": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      },
+      "required": [],
+      "title": "CustomItemType"
+    },
+    "CustomItems": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "moods": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomItemType"
+          }
+        },
+        "019951f6-fa45-7c09-a569-22d90f660df3": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomItemType"
+          }
+        }
+      },
+      "required": [],
+      "title": "CustomItems"
+    },
+    "File": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "authorId": {
+          "type": "integer"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "importInstallationId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "importId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "importBaseFolderHash": {
+          "type": "string"
+        },
+        "importBaseFolderName": {
+          "type": "string"
+        },
+        "importPath": {
+          "type": "string"
+        },
+        "importContentHash": {
+          "type": "string"
+        },
+        "importFormat": {
+          "type": "string"
+        },
+        "customData": {
+          "$ref": "#/definitions/FileCustomData"
+        },
+        "recordedAt": {
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "title": "File"
+    },
+    "FileCustomData": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tonalCenter": {
+          "type": "string"
+        },
+        "tonalQuality": {
+          "type": "string"
+        },
+        "moods": {
+          "$ref": "#/definitions/Moods"
+        }
+      },
+      "required": [],
+      "title": "FileCustomData"
+    },
+    "Moods": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "019951f4-bfd2-7fe8-a227-ddd6e19c29e5": {
+          "type": "null"
+        }
+      },
+      "required": [],
+      "title": "Moods"
+    },
+    "Marker": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "authorId": {
+          "type": "integer"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "fileId": {
+          "type": "string"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer"
+        },
+        "length": {
+          "type": "integer"
+        },
+        "rating": {
+          "type": "integer"
+        },
+        "createdAt": {
+          "type": "integer"
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Comment"
+          }
+        },
+        "customData": {
+          "$ref": "#/definitions/MarkerCustomData"
+        }
+      },
+      "required": [],
+      "title": "Marker"
+    },
+    "Comment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "authorId": {
+          "type": "integer"
+        },
+        "createdAt": {
+          "type": "integer"
+        },
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "Comment"
+    },
+    "MarkerCustomData": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "019951f6-fa46-7b80-b4c8-54801c12a8b0": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": [],
+      "title": "MarkerCustomData"
+    },
+    "Playlist": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "authorId": {
+          "type": "integer"
+        },
+        "createdAt": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [],
+      "title": "Playlist"
+    },
+    "Sheet": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "content": {
+          "$ref": "#/definitions/SheetContent"
+        }
+      },
+      "required": [],
+      "title": "Sheet"
+    },
+    "SheetContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PurpleContent"
+          }
+        }
+      },
+      "required": [],
+      "title": "SheetContent"
+    },
+    "PurpleContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FluffyContent"
+          }
+        },
+        "attrs": {
+          "$ref": "#/definitions/PurpleAttrs"
+        }
+      },
+      "required": [],
+      "title": "PurpleContent"
+    },
+    "PurpleAttrs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "level": {
+          "type": "integer"
+        }
+      },
+      "required": [],
+      "title": "PurpleAttrs"
+    },
+    "FluffyContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TentacledContent"
+          }
+        }
+      },
+      "required": [],
+      "title": "FluffyContent"
+    },
+    "TentacledContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StickyContent"
+          }
+        }
+      },
+      "required": [],
+      "title": "TentacledContent"
+    },
+    "StickyContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "attrs": {
+          "$ref": "#/definitions/FluffyAttrs"
+        }
+      },
+      "required": [],
+      "title": "StickyContent"
+    },
+    "FluffyAttrs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "title": "FluffyAttrs"
+    }
+  }
+}

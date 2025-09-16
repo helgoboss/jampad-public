@@ -1,0 +1,59 @@
+= Usage scenarios
+
+== Archive and organize personal or band recordings
+
+Solo musicians and ensembles alike love Jam Pad as safe and capable archive for their recorded material.
+
+After importing your recordings or recording them directly within the app, Jam Pad gives you many tools to categorize and rediscover them whenever you need.
+
+xref:key-concepts.adoc#multi-device-space[Multi-device spaces] or xref:key-concepts.adoc#cloud-space[Cloud spaces] make it easy to take selected portions of your music archive with you, without needing to keep everything on your mobile device.
+
+== Keep track of musical ideas
+
+Here's an interesting use case for composers and musicians who love to improvise and thereby tend to produce lots of musical ideas.
+
+At first, record or import your improvisations into Jam Pad. It then becomes your personal music idea archive and gives you all the tools you need to pick up the diamonds within your improvisation:
+
+. Listen to your latest improvisations and keep the best ideas by creating markers
+. Rate your ideas to identify the best ones
+. Categorize your ideas by assigning moods, custom tags, musical properties, etc.
+
+The clou: You can do most of this without even looking at the screen! Instead, you can have a walk or enjoy your train ride while immersing in your music and press buttons whenever you like something.
+
+== Review practice sessions
+
+Are you a classical or jazz musician? Then you probably practice a lot and the smallest detail matters. Recording your own practice and listening to it at a later point can help to look at your performance more objectively.
+
+Jam Pad helps you with that by allowing you to easily point out passages that need more polishing or are great already. You can attach notes or comments to markers if so that you don't forget what the marker was about.
+
+You can do this even on the go by adding voice comments on the press of a remote control button.
+
+== Collaborate on recordings, ideas, plan gigs
+
+Target audience: Ensembles / bands
+
+TODO
+
+== Mark and tag interesting moments in field recordings with ID3/BCW file writeback
+
+Target audience: Sound artists
+
+TODO
+
+== Create and optimize playlists
+
+Target audience: Performers, street musicians
+
+TODO
+
+== Show students interesting passages in recordings and comment on them
+
+Target audience: Teachers
+
+TODO
+
+== Manage recordings and stems and collaborate on them together with clients and partners
+
+Target audience: Studios
+
+TODO
