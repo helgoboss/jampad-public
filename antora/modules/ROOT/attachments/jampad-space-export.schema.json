@@ -207,7 +207,6 @@
           "default": "Metadata title or file name of the actually imported file"
         },
         "recordedAt": {
-          "type": "integer",
           "$ref": "#/definitions/Timestamp",
           "description": "Certain timestamp that says when this recording was initially recorded"
         },
@@ -261,6 +260,12 @@
       "type": "integer",
       "description": "Timezone-less timestamp, expressed in milliseconds since epoch UTC"
     },
+    "Rating": {
+      "type": "integer",
+      "minimum": 2,
+      "maximum": 5,
+      "description": "A rating. Ratings in Jam Pad start at 2, not at 1. This makes marker button interactions more intuitive."
+    },
     "CustomData": {
       "type": "object",
       "title": "Custom data",
@@ -268,254 +273,172 @@
       "additionalProperties": true
     },
     "Marker": {
+      "title": "Marker",
+      "description": "Describes a marker within a recording. At least one of the properties 'filePath' or 'fileId' needs to be provided.",
       "type": "object",
+      "required": ["id", "start"],
       "additionalProperties": false,
       "properties": {
         "id": {
           "type": "string",
-          "format": "uuid"
+          "description": "Identifier of the marker. Must be unique within this space."
         },
         "authorId": {
-          "type": "integer"
+          "type": "integer",
+          "description": "TODO"
         },
         "hidden": {
-          "type": "boolean"
-        },
-        "fileId": {
-          "type": "string"
+          "type": "boolean",
+          "description": "Whether this marker is hidden",
+          "default": false
         },
         "filePath": {
-          "type": "string"
+          "type": "string",
+          "description": "Relative path of the recording media file with which this marker is associated. This can only be used to refer to media files mentioned in the same JSON file. The path must correspond 1:1 to 'MediaFile.path'. Will be ignored if you provide 'fileId'."
+        },
+        "fileId": {
+          "type": "string",
+          "description": "ID of the recording with which this marker is associated. When exporting from Jam Pad, this is always set because Jam Pad already knows the ID, which is actually a fingerprint of the media file content. But if you build the JSON file yourself, you typically don't know which ID a recording will get, in which case you should provide the 'filePath' instead. If you provide an ID, 'filePath' will be ignored on import."
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "An optional marker name"
         },
         "start": {
-          "type": "integer"
+          "type": "integer",
+          "description": "Start position of the marker within the associated recording, in milliseconds."
         },
         "length": {
-          "type": "integer"
+          "type": "integer",
+          "description": "An optional marker length. If you provide this, the marker will not just mark a single point in time but a complete region of the recording. The length must be in milliseconds."
         },
         "rating": {
-          "type": "integer"
+          "$ref": "#/definitions/Rating",
+          "description": "An optional marker rating."
         },
         "createdAt": {
-          "type": "integer"
+          "$ref": "#/definitions/Timestamp",
+          "description": "Marker creation timestamp",
+          "default": "Current time at import"
         },
         "comments": {
           "type": "array",
+          "description": "Comments associated with this marker",
           "items": {
             "$ref": "#/definitions/Comment"
           }
         },
         "customData": {
-          "$ref": "#/definitions/MarkerCustomData"
+          "$ref": "#/definitions/CustomData",
+          "description": "Custom data associated with this marker"
         }
-      },
-      "required": [],
-      "title": "Marker"
+      }
     },
     "Comment": {
       "type": "object",
       "additionalProperties": false,
+      "required": ["id", "content"],
+      "title": "Comment",
+      "description": "A comment that can be associated with a recording or marker",
       "properties": {
         "id": {
           "type": "string",
-          "format": "uuid"
-        },
-        "hidden": {
-          "type": "boolean"
+          "description": "Identifier of the comment. Must be unique within this space."
         },
         "authorId": {
-          "type": "integer"
+          "type": "integer",
+          "description": "TODO"
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "Whether this comment is hidden",
+          "default": false
         },
         "createdAt": {
-          "type": "integer"
+          "$ref": "#/definitions/Timestamp",
+          "description": "Comment creation timestamp",
+          "default": "Current time at import"
         },
         "content": {
-          "type": "string"
-        }
-      },
-      "required": [],
-      "title": "Comment"
-    },
-    "MarkerCustomData": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "019951f6-fa46-7b80-b4c8-54801c12a8b0": {
           "type": "string",
-          "format": "uuid"
+          "description": "Comment text"
         }
-      },
-      "required": [],
-      "title": "MarkerCustomData"
+      }
     },
     "Playlist": {
       "type": "object",
+      "title": "Playlist",
+      "description": "A playlist of recordings and/or markers",
+      "additionalProperties": false,
+      "required": ["id", "name", "items"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier of the playlist. Must be unique within this space."
+        },
+        "authorId": {
+          "type": "integer",
+          "description": "TODO"
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "Whether this playlist is hidden",
+          "default": false
+        },
+        "createdAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Comment creation timestamp",
+          "default": "Current time at import"
+        },
+        "name": {
+          "type": "string",
+          "description": "Playlist name"
+        },
+        "items": {
+          "type": "array",
+          "description": "Playlist entries. Each entry must be a Jam Pad item reference followed by a '#' character and a ID uniquely identifying the entry itself. Check the examples!",
+          "items": {
+            "type": "string",
+            "examples": [
+              "/marker/019951e4-22aa-78e2-a8e8-4a36823d63aa#6DHP",
+              "/file/7SA8JQ5SRM97H2XC4075TWRRG4#TYCX"
+            ]
+          }
+        }
+      }
+    },
+    "Sheet": {
+      "type": "object",
+      "title": "Sheet",
+      "description": "A simple document that can embed Jam Pad items such as recordings or markers",
+      "required": ["id", "content"],
       "additionalProperties": false,
       "properties": {
         "id": {
           "type": "string",
-          "format": "uuid"
+          "description": "Identifier of the sheet. Must be unique within this space."
         },
         "hidden": {
-          "type": "boolean"
-        },
-        "authorId": {
-          "type": "integer"
-        },
-        "createdAt": {
-          "type": "integer"
-        },
-        "name": {
-          "type": "string"
-        },
-        "items": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [],
-      "title": "Playlist"
-    },
-    "Sheet": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "hidden": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether this marker is hidden",
+          "default": false
         },
         "title": {
-          "type": "string"
+          "type": "string",
+          "description": "Sheet title",
+          "default": "Same like ID"
         },
         "content": {
-          "$ref": "#/definitions/SheetContent"
+          "$ref": "#/definitions/SheetContent",
+          "description": "Sheet content"
         }
-      },
-      "required": [],
-      "title": "Sheet"
+      }
     },
     "SheetContent": {
       "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "type": {
-          "type": "string"
-        },
-        "content": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/PurpleContent"
-          }
-        }
-      },
-      "required": [],
-      "title": "SheetContent"
-    },
-    "PurpleContent": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "type": {
-          "type": "string"
-        },
-        "content": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/FluffyContent"
-          }
-        },
-        "attrs": {
-          "$ref": "#/definitions/PurpleAttrs"
-        }
-      },
-      "required": [],
-      "title": "PurpleContent"
-    },
-    "PurpleAttrs": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "level": {
-          "type": "integer"
-        }
-      },
-      "required": [],
-      "title": "PurpleAttrs"
-    },
-    "FluffyContent": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "type": {
-          "type": "string"
-        },
-        "text": {
-          "type": "string"
-        },
-        "content": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/TentacledContent"
-          }
-        }
-      },
-      "required": [],
-      "title": "FluffyContent"
-    },
-    "TentacledContent": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "type": {
-          "type": "string"
-        },
-        "content": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/StickyContent"
-          }
-        }
-      },
-      "required": [],
-      "title": "TentacledContent"
-    },
-    "StickyContent": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "type": {
-          "type": "string"
-        },
-        "attrs": {
-          "$ref": "#/definitions/FluffyAttrs"
-        }
-      },
-      "required": [],
-      "title": "StickyContent"
-    },
-    "FluffyAttrs": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "href": {
-          "type": "string"
-        }
-      },
-      "required": [],
-      "title": "FluffyAttrs"
+      "title": "SheetContent",
+      "additionalProperties": true,
+      "description": "TODO"
     }
   }
 }
