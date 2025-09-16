@@ -7,212 +7,265 @@
   "definitions": {
     "Space": {
       "type": "object",
+      "required": [],
+      "additionalProperties": false,
       "title": "Space",
-      "description": "Contents of a single Jam Pad space that is not user/device-specific",
+      "description": "All contents of a single Jam Pad space that are not user/device-specific",
       "properties": {
         "customFieldsForFiles": {
           "type": "array",
-          "description": "",
+          "description": "All custom fields usable for recordings",
           "items": {
-            "$ref": "#/definitions/CustomFieldsFor"
+            "$ref": "#/definitions/CustomField"
           }
         },
         "customFieldsForMarkers": {
           "type": "array",
+          "description": "All custom fields usable for markers",
           "items": {
-            "$ref": "#/definitions/CustomFieldsFor"
+            "$ref": "#/definitions/CustomField"
           }
         },
         "customItemTypes": {
+          "description": "All types of custom items usable for custom fields",
           "type": "array",
           "items": {
             "$ref": "#/definitions/CustomItemType"
           }
         },
         "customItems": {
-          "$ref": "#/definitions/CustomItems"
+          "description": "All custom items usable for custom fields. Each map key must be the ID of a custom item type. Each value must be the list of custom items.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/CustomItem"
+            }
+          }
         },
         "files": {
+          "description": "All recordings",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/File"
+            "$ref": "#/definitions/MediaFile"
           }
         },
         "markers": {
+          "description": "All markers",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Marker"
           }
         },
         "playlists": {
+          "description": "All playlists",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Playlist"
           }
         },
         "sheets": {
+          "description": "All sheets",
           "type": "array",
           "items": {
             "$ref": "#/definitions/Sheet"
           }
         }
-      },
-      "required": []
+      }
     },
-    "CustomFieldsFor": {
+    "CustomField": {
       "type": "object",
+      "required": ["id", "name", "type"],
+      "title": "Custom field",
+      "description": "A custom field usable for recordings or markers, depending in which list it appears",
       "additionalProperties": false,
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "Identifier of the custom field. Must be unique within this space."
         },
         "hidden": {
-          "type": "boolean"
-        },
-        "name": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        },
-        "itemTypeId": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
+          "type": "boolean",
+          "description": "Whether this field is hidden",
+          "default": false
         },
         "position": {
-          "type": "integer"
+          "type": "integer",
+          "description": "Position of this field relative to other fields. Influences where it appears in the Jam Pad user interface.",
+          "default": 1000
         },
         "showInListView": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether this field should show up in Jam Pad's list views (vs. only in the detail views).",
+          "default": false
+        },
+        "name": {
+          "type": "string",
+          "description": "Field name"
+        },
+        "description": {
+          "type": "string",
+          "description": "Explains the purpose of this field"
+        },
+        "type": {
+          "enum": ["string", "note", "tonalQuality", "bpm", "timeSignature", "item", "items"],
+          "description": "Defines which type of values this field accepts and how Jam Pad displays them"
+        },
+        "itemTypeId": {
+          "type": "string",
+          "description": "For type 'item' and 'items', this defines the collection of choices among which users may pick"
         }
-      },
-      "required": [],
-      "title": "CustomFieldsFor"
+      }
     },
     "CustomItemType": {
       "type": "object",
+      "required": ["id", "name"],
+      "title": "Custom item type",
+      "description": "Defines a possible collection of items. The actual items for the collection are not yet defined.",
       "additionalProperties": false,
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "Identifier of the custom item type. Must be unique within this space."
         },
         "hidden": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether this item collection is hidden",
+          "default": false
         },
         "name": {
-          "type": "string"
-        },
-        "customColor": {
-          "type": "array",
-          "items": {
-            "type": "integer"
-          }
+          "type": "string",
+          "description": "Item collection name"
         }
-      },
-      "required": [],
-      "title": "CustomItemType"
+      }
     },
-    "CustomItems": {
+    "CustomItem": {
       "type": "object",
+      "required": ["id", "name"],
+      "title": "Custom item",
+      "description": "Defines an actual custom item belonging to the surrounding collection.",
       "additionalProperties": false,
       "properties": {
-        "moods": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CustomItemType"
-          }
+        "id": {
+          "type": "string",
+          "description": "Identifier of the custom item. Must be unique within this collection."
         },
-        "019951f6-fa45-7c09-a569-22d90f660df3": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CustomItemType"
-          }
+        "hidden": {
+          "type": "boolean",
+          "description": "Whether this item is hidden",
+          "default": false
+        },
+        "name": {
+          "type": "string",
+          "description": "Item name"
+        },
+        "customColor": {
+          "description": "Defines a custom color in which this item will be appear.",
+          "$ref": "#/definitions/CustomColor"
+        },
+        "paletteColor": {
+          "description": "Picks a color from a dynamic palette. Only applied if no custom color is given.",
+          "type": "integer"
         }
-      },
-      "required": [],
-      "title": "CustomItems"
+      }
     },
-    "File": {
+    "CustomColor": {
+      "title": "Custom color",
+      "description": "Defines a custom RGB color",
+      "type": "array",
+      "items": [
+        { "type": "integer", "minimum": 0, "maximum": 255, "description": "Amount of red" },
+        { "type": "integer", "minimum": 0, "maximum": 255, "description": "Amount of green"  },
+        { "type": "integer", "minimum": 0, "maximum": 255, "description": "Amount of blue"  }
+      ],
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "MediaFile": {
+      "title": "Recording",
+      "description": "Describes a recording",
       "type": "object",
+      "required": ["path"],
       "additionalProperties": false,
       "properties": {
         "path": {
-          "type": "string"
+          "type": "string",
+          "description": "Path to the actual media file. This path must be relative to the directory in which the JSON file is located."
         },
         "authorId": {
-          "type": "integer"
+          "type": "integer",
+          "description": "TODO"
         },
         "hidden": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether this recording is hidden",
+          "default": false
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Name of the recording",
+          "default": "Metadata title or file name of the actually imported file"
+        },
+        "recordedAt": {
+          "type": "integer",
+          "$ref": "#/definitions/Timestamp",
+          "description": "Certain timestamp that says when this recording was initially recorded"
         },
         "origin": {
-          "type": "string"
+          "enum": ["imported", "recorded"],
+          "description": "Whether this recording was recorded directly within Jam Pad or imported from outside",
+          "default": "imported"
         },
         "importInstallationId": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "description": "If imported, this field contains a globally unique identifier that says in which specific Jam Pad installation this recording has been originally imported.",
+          "default": "ID of the Jam Pad installation which is importing this JSON file"
         },
         "importId": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "description": "If imported, this field contains a globally unique identifier that says by which specific original import job this recording has been imported.",
+          "default": "ID of the import with which this JSON file is being imported"
         },
         "importBaseFolderHash": {
-          "type": "string"
+          "type": "string",
+          "description": "If imported, this field contains a cryptic string that says from which absolute base path the original import was started. It's cryptic for a reason: In collaborative spaces, this string will be visible to all space members. To protect the original importer's privacy, we don't save the base folder in plain text (it could contain an OS username)."
         },
         "importBaseFolderName": {
-          "type": "string"
+          "type": "string",
+          "description": "If imported, this field contains the name of the folder from which the original import was started."
         },
         "importPath": {
-          "type": "string"
+          "type": "string",
+          "description": "If imported, this field contains the relative path from which this media was originally imported.",
+          "default": "Same as 'path'"
         },
         "importContentHash": {
-          "type": "string"
+          "type": "string",
+          "description": "If imported, this field contains the unique fingerprint of the originally imported file.",
+          "default": "Hash of the actual file that is being imported"
         },
         "importFormat": {
-          "type": "string"
+          "enum": ["wav", "mp3", "fac", "m4a"],
+          "description": "If imported, this field contains the format of the originally imported file.",
+          "default": "Format of the actual file that is being imported"
         },
         "customData": {
-          "$ref": "#/definitions/FileCustomData"
-        },
-        "recordedAt": {
-          "type": "integer"
+          "$ref": "#/definitions/CustomData",
+          "description": "Custom data associated with this recording"
         }
-      },
-      "required": [],
-      "title": "File"
+      }
     },
-    "FileCustomData": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "tonalCenter": {
-          "type": "string"
-        },
-        "tonalQuality": {
-          "type": "string"
-        },
-        "moods": {
-          "$ref": "#/definitions/Moods"
-        }
-      },
-      "required": [],
-      "title": "FileCustomData"
+    "Timestamp": {
+      "type": "integer",
+      "description": "Timezone-less timestamp, expressed in milliseconds since epoch UTC"
     },
-    "Moods": {
+    "CustomData": {
       "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "019951f4-bfd2-7fe8-a227-ddd6e19c29e5": {
-          "type": "null"
-        }
-      },
-      "required": [],
-      "title": "Moods"
+      "title": "Custom data",
+      "description": "Arbitrary data. Each key of this object corresponds to the ID of a custom field. If the custom field doesn't exist, the data will be kept but not shown in the user interface. The structure of the value must correspond to the type of the custom field. It can be anything from a simple number to a complex nested object.",
+      "additionalProperties": true
     },
     "Marker": {
       "type": "object",
