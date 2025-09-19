@@ -12,9 +12,9 @@
       "title": "Space",
       "description": "All contents of a single Jam Pad space that are not user/device-specific",
       "properties": {
-        "customFieldsForFiles": {
+        "customFieldsForClips": {
           "type": "array",
-          "description": "All custom fields usable for recordings",
+          "description": "All custom fields usable for clips",
           "items": {
             "$ref": "#/definitions/CustomField"
           }
@@ -43,11 +43,11 @@
             }
           }
         },
-        "files": {
-          "description": "All recordings",
+        "clips": {
+          "description": "All clips",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/MediaFile"
+            "$ref": "#/definitions/Clip"
           }
         },
         "markers": {
@@ -77,7 +77,7 @@
       "type": "object",
       "required": ["id", "name", "type"],
       "title": "Custom field",
-      "description": "A custom field usable for recordings or markers, depending in which list it appears",
+      "description": "A custom field usable for clips or markers, depending in which list it appears",
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -181,16 +181,16 @@
       "minItems": 3,
       "maxItems": 3
     },
-    "MediaFile": {
-      "title": "Recording",
-      "description": "Describes a recording",
+    "Clip": {
+      "title": "Clip",
+      "description": "Describes a clip",
       "type": "object",
-      "required": ["path"],
+      "required": ["id", "versions"],
       "additionalProperties": false,
       "properties": {
-        "path": {
+        "id": {
           "type": "string",
-          "description": "Path to the actual media file. This path must be relative to the directory in which the JSON file is located."
+          "description": "Identifier of the clip. Must be unique within this space."
         },
         "authorId": {
           "type": "integer",
@@ -198,33 +198,58 @@
         },
         "hidden": {
           "type": "boolean",
-          "description": "Whether this recording is hidden",
+          "description": "Whether this clip is hidden",
           "default": false
         },
         "name": {
           "type": "string",
-          "description": "Name of the recording",
+          "description": "Name of the clip",
           "default": "Metadata title or file name of the actually imported file"
+        },
+        "customData": {
+          "$ref": "#/definitions/CustomData",
+          "description": "Custom data associated with this clip"
+        },
+        "versions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/ClipVersion"
+          },
+          "description": "List of clip versions, starting at version 1"
+        }
+      }
+    },
+    "ClipVersion": {
+      "title": "Clip version",
+      "description": "Describes a particular version of a clip",
+      "type": "object",
+      "required": ["filePath"],
+      "additionalProperties": false,
+      "properties": {
+        "filePath": {
+          "type": "string",
+          "description": "Path to the actual media file. This path must be relative to the directory in which the JSON file is located."
         },
         "recordedAt": {
           "$ref": "#/definitions/Timestamp",
-          "description": "Certain timestamp that says when this recording was initially recorded"
+          "description": "Certain timestamp that says when this clip version was initially recorded"
         },
         "origin": {
           "enum": ["imported", "recorded"],
-          "description": "Whether this recording was recorded directly within Jam Pad or imported from outside",
+          "description": "Whether this clip version was recorded directly within Jam Pad or imported from outside",
           "default": "imported"
         },
         "importInstallationId": {
           "type": "string",
           "format": "uuid",
-          "description": "If imported, this field contains a globally unique identifier that says in which specific Jam Pad installation this recording has been originally imported.",
+          "description": "If imported, this field contains a globally unique identifier that says in which specific Jam Pad installation this clip version has been originally imported.",
           "default": "ID of the Jam Pad installation which is importing this JSON file"
         },
         "importId": {
           "type": "string",
           "format": "uuid",
-          "description": "If imported, this field contains a globally unique identifier that says by which specific original import job this recording has been imported.",
+          "description": "If imported, this field contains a globally unique identifier that says by which specific original import job this clip version has been imported.",
           "default": "ID of the import with which this JSON file is being imported"
         },
         "importBaseFolderHash": {
@@ -249,10 +274,6 @@
           "enum": ["wav", "mp3", "fac", "m4a"],
           "description": "If imported, this field contains the format of the originally imported file.",
           "default": "Format of the actual file that is being imported"
-        },
-        "customData": {
-          "$ref": "#/definitions/CustomData",
-          "description": "Custom data associated with this recording"
         }
       }
     },
@@ -274,9 +295,9 @@
     },
     "Marker": {
       "title": "Marker",
-      "description": "Describes a marker within a recording. At least one of the properties 'filePath' or 'fileId' needs to be provided.",
+      "description": "Describes a marker within a clip.",
       "type": "object",
-      "required": ["id", "start"],
+      "required": ["id", "clipVersionId", "start"],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -292,13 +313,9 @@
           "description": "Whether this marker is hidden",
           "default": false
         },
-        "filePath": {
+        "clipVersionId": {
           "type": "string",
-          "description": "Relative path of the recording media file with which this marker is associated. This can only be used to refer to media files mentioned in the same JSON file. The path must correspond 1:1 to 'MediaFile.path'. Will be ignored if you provide 'fileId'."
-        },
-        "fileId": {
-          "type": "string",
-          "description": "ID of the recording with which this marker is associated. When exporting from Jam Pad, this is always set because Jam Pad already knows the ID, which is actually a fingerprint of the media file content. But if you build the JSON file yourself, you typically don't know which ID a recording will get, in which case you should provide the 'filePath' instead. If you provide an ID, 'filePath' will be ignored on import."
+          "description": "ID of the clip version with which this marker is associated."
         },
         "name": {
           "type": "string",
@@ -306,11 +323,11 @@
         },
         "start": {
           "type": "integer",
-          "description": "Start position of the marker within the associated recording, in milliseconds."
+          "description": "Start position of the marker within the associated clip, in milliseconds."
         },
         "length": {
           "type": "integer",
-          "description": "An optional marker length. If you provide this, the marker will not just mark a single point in time but a complete region of the recording. The length must be in milliseconds."
+          "description": "An optional marker length. If you provide this, the marker will not just mark a single point in time but a complete region of the clip. The length must be in milliseconds."
         },
         "rating": {
           "$ref": "#/definitions/Rating",
@@ -339,7 +356,7 @@
       "additionalProperties": false,
       "required": ["id", "content"],
       "title": "Comment",
-      "description": "A comment that can be associated with a recording or marker",
+      "description": "A comment that can be associated with a clip or marker",
       "properties": {
         "id": {
           "type": "string",
@@ -368,7 +385,7 @@
     "Playlist": {
       "type": "object",
       "title": "Playlist",
-      "description": "A playlist of recordings and/or markers",
+      "description": "A playlist of clips and/or markers",
       "additionalProperties": false,
       "required": ["id", "name", "items"],
       "properties": {
@@ -396,12 +413,13 @@
         },
         "items": {
           "type": "array",
-          "description": "Playlist entries. Each entry must be a Jam Pad item reference followed by a '#' character and a ID uniquely identifying the entry itself. Check the examples!",
+          "description": "Playlist entries. Each entry must be a Jam Pad item reference followed by a '#' character and an ID uniquely identifying the entry itself. Check the examples!",
+          "uniqueItems": true,
           "items": {
             "type": "string",
             "examples": [
               "/marker/019951e4-22aa-78e2-a8e8-4a36823d63aa#6DHP",
-              "/file/7SA8JQ5SRM97H2XC4075TWRRG4#TYCX"
+              "/clip/019951ef-5d9a-7a48-bbb9-23d7d9c5f4fc#TYCX"
             ]
           }
         }
@@ -410,7 +428,7 @@
     "Sheet": {
       "type": "object",
       "title": "Sheet",
-      "description": "A simple document that can embed Jam Pad items such as recordings or markers",
+      "description": "A simple document that can embed Jam Pad items such as clips or markers",
       "required": ["id", "content"],
       "additionalProperties": false,
       "properties": {

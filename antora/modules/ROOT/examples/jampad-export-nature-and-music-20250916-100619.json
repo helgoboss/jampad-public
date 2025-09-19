@@ -1,12 +1,12 @@
 {
-    "customFieldsForFiles": [
+    "customFieldsForClips": [
         {
             "id": "moods",
             "hidden": false,
-            "name": "Moods",
+            "name": "Mood",
             "type": "items",
             "itemTypeId": "moods",
-            "description": "Associate a file or marker with moods or emotions, such as \"Happy\" or \"Sad\"",
+            "description": "Associate a clip or marker with moods or emotions, such as \"Happy\" or \"Sad\"",
             "position": 600,
             "showInListView": true
         },
@@ -98,66 +98,86 @@
             }
         ]
     },
-    "files": [
+    "clips": [
         {
-            "path": "assets/7SA8JQ5SRM97H2XC4075TWRRG4-media.m4a",
+            "id": "019951ef-2c7b-7a6d-b5cc-4afc4ec2f08c",
             "authorId": 0,
             "hidden": false,
             "name": "Siquijor Hill",
-            "origin": "imported",
-            "importInstallationId": "01991a04-8640-7820-b3bf-3da3754cf705",
-            "importId": "019951ae-4098-7ddf-822c-a22ebd3246e0",
-            "importBaseFolderHash": "5A6JFGW2HZ3SB3E6KTCCW42RR8",
-            "importBaseFolderName": "docs",
-            "importPath": "230212-142536-siquijor-hill.wav",
-            "importContentHash": "4JRKZ1T9SPS035M0KZ36SRHXEG",
-            "importFormat": "wav",
-            "customData": {}
+            "customData": {},
+            "versions": [
+                {
+                    "filePath": "assets/7SA8JQ5SRM97H2XC4075TWRRG4-media.m4a",
+                    "origin": "imported",
+                    "importInstallationId": "01991a04-8640-7820-b3bf-3da3754cf705",
+                    "importId": "019951ae-4098-7ddf-822c-a22ebd3246e0",
+                    "importBaseFolderHash": "5A6JFGW2HZ3SB3E6KTCCW42RR8",
+                    "importBaseFolderName": "docs",
+                    "importPath": "230212-142536-siquijor-hill.wav",
+                    "importContentHash": "4JRKZ1T9SPS035M0KZ36SRHXEG",
+                    "importFormat": "wav"
+                }
+            ]
         },
         {
-            "path": "assets/8E4CN8JX590DTMPA5MFM76HGC4-media.mp3",
+            "id": "019951ef-467e-7e21-9141-7a2d32bbeb7a",
             "authorId": 0,
             "hidden": false,
             "name": "Distance",
-            "origin": "imported",
-            "importInstallationId": "01991a04-8640-7820-b3bf-3da3754cf705",
-            "importId": "019951ae-4098-7ddf-822c-a22ebd3246e0",
-            "importBaseFolderHash": "5A6JFGW2HZ3SB3E6KTCCW42RR8",
-            "importBaseFolderName": "docs",
-            "importPath": "Distance.mp3",
-            "importContentHash": "8E4CN8JX590DTMPA5MFM76HGC4",
-            "importFormat": "mp3",
             "customData": {
                 "tonalCenter": "B♭",
                 "tonalQuality": "min",
                 "moods": {
                     "019951f4-bfd2-7fe8-a227-ddd6e19c29e5": null
                 }
-            }
+            },
+            "versions": [
+                {
+                    "filePath": "assets/8E4CN8JX590DTMPA5MFM76HGC4-media.mp3",
+                    "origin": "imported",
+                    "importInstallationId": "01991a04-8640-7820-b3bf-3da3754cf705",
+                    "importId": "019951ae-4098-7ddf-822c-a22ebd3246e0",
+                    "importBaseFolderHash": "5A6JFGW2HZ3SB3E6KTCCW42RR8",
+                    "importBaseFolderName": "docs",
+                    "importPath": "Distance.mp3",
+                    "importContentHash": "8E4CN8JX590DTMPA5MFM76HGC4",
+                    "importFormat": "mp3"
+                }
+            ]
         },
         {
-            "path": "assets/TT9Q3E82VZN64VY1YP0CF76AR4-media.m4a",
+            "id": "019951ef-5d9a-7a48-bbb9-23d7d9c5f4fc",
             "authorId": 0,
             "hidden": false,
             "name": "Rügen Sea",
-            "origin": "imported",
-            "importInstallationId": "01991a04-8640-7820-b3bf-3da3754cf705",
-            "importId": "019951eb-b050-7b1f-961e-c669e7657e70",
-            "importBaseFolderHash": "5A6JFGW2HZ3SB3E6KTCCW42RR8",
-            "importBaseFolderName": "docs",
-            "importPath": "ruegen.WAV",
-            "importContentHash": "D4GPJ595FT4EVB56M1H99NC76C",
-            "importFormat": "wav",
-            "customData": {}
+            "customData": {},
+            "versions": [
+                {
+                    "filePath": "assets/TT9Q3E82VZN64VY1YP0CF76AR4-media.m4a",
+                    "origin": "imported",
+                    "importInstallationId": "01991a04-8640-7820-b3bf-3da3754cf705",
+                    "importId": "019951eb-b050-7b1f-961e-c669e7657e70",
+                    "importBaseFolderHash": "5A6JFGW2HZ3SB3E6KTCCW42RR8",
+                    "importBaseFolderName": "docs",
+                    "importPath": "ruegen.WAV",
+                    "importContentHash": "D4GPJ595FT4EVB56M1H99NC76C",
+                    "importFormat": "wav"
+                }
+            ]
         },
         {
-            "path": "assets/R00YRM97VVK5M9MSBT9RAVSECG-media.m4a",
+            "id": "019951ef-742d-7d17-92c7-1e45ef9a6a41",
             "authorId": 0,
             "hidden": false,
             "name": "Whistling",
-            "recordedAt": 1758012017571,
-            "origin": "recorded",
-            "customData": {}
+            "customData": {},
+            "versions": [
+                {
+                    "filePath": "assets/R00YRM97VVK5M9MSBT9RAVSECG-media.m4a",
+                    "recordedAt": 1758012017571,
+                    "origin": "recorded"
+                }
+            ]
         }
     ],
     "markers": [
@@ -165,8 +185,7 @@
             "id": "019951e5-2158-7455-9435-5e9dfbe83a6f",
             "authorId": 0,
             "hidden": false,
-            "fileId": "8E4CN8JX590DTMPA5MFM76HGC4",
-            "filePath": "assets/8E4CN8JX590DTMPA5MFM76HGC4-media.mp3",
+            "clipVersionId": "019951ef-467e-7e21-9141-7a2d32bbeb7a/1",
             "name": "Distorted",
             "start": 153909,
             "length": 15000,
@@ -179,8 +198,7 @@
             "id": "019951e3-c263-7d6e-96ab-0acdc0511c1b",
             "authorId": 0,
             "hidden": false,
-            "fileId": "7SA8JQ5SRM97H2XC4075TWRRG4",
-            "filePath": "assets/7SA8JQ5SRM97H2XC4075TWRRG4-media.m4a",
+            "clipVersionId": "019951ef-2c7b-7a6d-b5cc-4afc4ec2f08c/1",
             "name": "Loud cricket",
             "start": 254634,
             "length": 15000,
@@ -203,8 +221,7 @@
             "id": "019951e4-22aa-78e2-a8e8-4a36823d63aa",
             "authorId": 0,
             "hidden": false,
-            "fileId": "8E4CN8JX590DTMPA5MFM76HGC4",
-            "filePath": "assets/8E4CN8JX590DTMPA5MFM76HGC4-media.mp3",
+            "clipVersionId": "019951ef-467e-7e21-9141-7a2d32bbeb7a/1",
             "name": "Drop & Flute",
             "start": 98404,
             "length": 15000,
@@ -216,8 +233,7 @@
             "id": "019951f8-317b-7f96-a3ea-652e7e9bf8d0",
             "authorId": 0,
             "hidden": false,
-            "fileId": "TT9Q3E82VZN64VY1YP0CF76AR4",
-            "filePath": "assets/TT9Q3E82VZN64VY1YP0CF76AR4-media.m4a",
+            "clipVersionId": "019951ef-5d9a-7a48-bbb9-23d7d9c5f4fc/1",
             "name": "Knocking stones",
             "start": 36123,
             "length": 15000,
@@ -238,7 +254,7 @@
             "items": [
                 "/marker/019951e4-22aa-78e2-a8e8-4a36823d63aa#6DHP",
                 "/marker/019951e3-c263-7d6e-96ab-0acdc0511c1b#PA5X",
-                "/file/7SA8JQ5SRM97H2XC4075TWRRG4#TYCX"
+                "/clip/019951ef-2c7b-7a6d-b5cc-4afc4ec2f08c#TYCX"
             ]
         }
     ],
@@ -302,7 +318,7 @@
                                                 "type": "jam",
                                                 "attrs": {
                                                     "id": "85VB",
-                                                    "href": "/file/TT9Q3E82VZN64VY1YP0CF76AR4"
+                                                    "href": "/clip/019951ef-5d9a-7a48-bbb9-23d7d9c5f4fc"
                                                 }
                                             }
                                         ]
@@ -319,7 +335,7 @@
                                                 "type": "jam",
                                                 "attrs": {
                                                     "id": "337W",
-                                                    "href": "/file/8E4CN8JX590DTMPA5MFM76HGC4"
+                                                    "href": "/clip/019951ef-467e-7e21-9141-7a2d32bbeb7a"
                                                 }
                                             }
                                         ]

@@ -3,14 +3,14 @@
 [[space]]
 == Space
 
-Spaces are the top-level organizational unit of Jam Pad. A space is a self-contained collection of <<recording,recordings>>, <<marker,markers>>, <<playlist,playlists>>, <<sheet,sheets>>, <<comment,comments>> and - in collaborative spaces also - <<message, messages>>.
+Spaces are the top-level organizational unit of Jam Pad. A space is a self-contained collection of <<clip,clips>>, <<marker,markers>>, <<playlist,playlists>>, <<sheet,sheets>>, <<comment,comments>> and - in collaborative spaces also - <<message, messages>>.
 
 Musicians will typically create at least one space for themselves and then one for each band / musical project. Studios will typically create one space for each client or album.
 
 [[single-device-space]]
 === Single-device space
 
-All recordings and other data in a single-device space stay on your device and your device only. You can create as many single-device spaces as you want.
+All clips and other data in a single-device space stay on your device and your device only. You can create as many single-device spaces as you want.
 
 Each space starts as single-device space and can later be upgraded to a <<multi-device-space>> or <<cloud-space>>.
 
@@ -21,7 +21,7 @@ A multi-device space is a space that is synchronized between multiple devices di
 
 For this to work, you first need to configure one Jam Pad installation to act as <<main-device>> and then pair it with one or more <<companion-device, companion devices>>. For example, a computer makes a good main device and a mobile phone a good companion. After this one-time setup, you can upgrade arbitrary <<single-device-space,single-device spaces>> to multi-device spaces.
 
-Small data (such as markers) of a multi-device space will be seamlessly synced bidirectionally between your paired devices, so that you can access it even after connection between the devices is lost. Large data (such as recordings) will always be synced to the <<main-device>>, so that it eventually always gets all of your recordings. <<companion-device,Companion devices>> can selectively download recordings from the main device because companion devices typically have limited storage.
+Small data (such as markers) of a multi-device space will be seamlessly synced bidirectionally between your paired devices, so that you can access it even after connection between the devices is lost. Large data (such as clips) will always be synced to the <<main-device>>, so that it eventually always gets all of your clips. <<companion-device,Companion devices>> can selectively download clips from the main device because companion devices typically have limited storage.
 
 The connection happens over your local Wi-Fi network and optionally even over the internet. In both cases, it's an end-to-end-encrypted peer-to-peer connection. Perfect for privacy!
 
@@ -38,9 +38,9 @@ For this to work, you first need to create a <<account, Jam Pad account>> and lo
 
 All data of a cloud space will automatically be synchronized to the cloud and is by default **only** accessible from your account. You can log into the same account on your other devices and will automatically see the space there and work with it.
 
-Small data (such as markers) will be seamlessly synced bidirectionally between your device and the cloud, so that you can access it even after you go offline. Large data (such as recordings) will always be synced to the cloud, so that it eventually always gets all of your recordings. You can selectively download recordings from the cloud to make them available offline as well.
+Small data (such as markers) will be seamlessly synced bidirectionally between your device and the cloud, so that you can access it even after you go offline. Large data (such as clips) will always be synced to the cloud, so that it eventually always gets all of your clips. You can selectively download clips from the cloud to make them available offline as well.
 
-Cloud spaces come with an additional collaborative features! You can add invite other Jam Pad users to participate in your space, for example the members of your band or a client. They will see more or less the same recordings and data and can contribute by uploading own recordings, adding playlists, commenting, marking, creating or changing <<sheet,sheets>>. It's also possible to send <<message,messages>> to your team, for example to start talking about certain musical passages or improvements.
+Cloud spaces come with an additional collaborative features! You can add invite other Jam Pad users to participate in your space, for example the members of your band or a client. They will see more or less the same clips and data and can contribute by uploading own clips, adding playlists, commenting, marking, creating or changing <<sheet,sheets>>. It's also possible to send <<message,messages>> to your team, for example to start talking about certain musical passages or improvements.
 
 [NOTE]
 ====
@@ -57,20 +57,33 @@ Depending on your selected plan, limits apply:
 [[space-objects]]
 == Space objects
 
-[[recording]]
-=== Recording
+[[clip]]
+=== Clip
 
-[[recording-id]]
-==== Recording ID
+Simply spoken, clips are audio files.
 
-Each recording in Jam Pad has a unique identifier. In most cases, you don't need to care about it, but if you dive into the app a bit deeper, it helps to know what it is.
+It can be recordings, finished
 
-The recording ID is a cryptic-looking uppercase string with 26 characters. It's actually a fingerprint of the audio file. That means 2 audio files with exactly the same content will result in exactly the same fingerprint. This is great because it means you never get duplicates in Jam Pad (within one space).
+[[clip-version]]
+=== Clip version
+
+[[clip-id]]
+==== Clip ID
 
 [[asset]]
 === Asset
 
-In Jam Pad, an asset is a larger file such as a recording, a waveform peak file, a voice comment, and so on.
+In Jam Pad, an asset is a larger file such as a clip, a waveform peak file, a voice comment, and so on.
+
+[[asset-id]]
+==== Asset ID
+
+Each asset in Jam Pad has a unique identifier. In most cases, you don't need to care about it, but if you dive into the app a bit deeper, it helps to know what it is.
+
+The asset ID is a cryptic-looking uppercase string with 26 characters. It's actually a fingerprint of the asset content. That means 2 assets with exactly the same content will result in exactly the same fingerprint. This is great because it means you never get duplicates in Jam Pad (within one space), which saves valuable storage space.
+
+
+
 
 [[marker]]
 === Marker

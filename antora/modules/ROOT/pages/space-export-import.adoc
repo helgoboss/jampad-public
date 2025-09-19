@@ -1,6 +1,6 @@
 = Space export/import
 
-Jam Pad allows you to export a space including all of its recordings and other data to a folder of your choice. The reverse - importing from a folder - is also possible.
+Jam Pad allows you to export a space including all of its clips and other data to a folder of your choice. The reverse - importing from a folder - is also possible.
 
 == Export/import vs. Backup/restore
 
@@ -24,7 +24,7 @@ my-space/
 ----
 
 <1> The folder containing all space xref:key-concepts.adoc#asset[assets]
-<2> The asset folder is grouped into subfolders. Each subfolder typically represents one recording, its name being the xref:key-concepts.adoc#recording-id[].
+<2> The asset folder is grouped into subfolders. Each subfolder typically represents one clip, its name being the xref:key-concepts.adoc#asset-id[].
 <3> The actual audio file in one of Jam Pad's internally supported audio formats (always called `media.*`)
 <4> A link:https://www.json.org/json-en.html[JSON] file that contains a snapshot of all the other data in this space (markers, playlists, sheets, ...)
 
@@ -65,7 +65,7 @@ Each item type is described as a map:
 
 === `customFieldsForFiles`
 
-This is an array containing all xref:key-concepts.adoc#custom-field[custom fields] defined for xref:key-concepts.adoc#recording[recordings] in that space.
+This is an array containing all xref:key-concepts.adoc#custom-field[custom fields] defined for xref:key-concepts.adoc#clip[recordings] in that space.
 
 === `customFieldsForMarkers`
 
@@ -77,7 +77,7 @@ This is a map containing all xref:key-concepts.adoc#custom-item[custom items] de
 
 === `files`
 
-This is an array describing all xref:key-concepts.adoc#recording[recordings] in the space.
+This is an array describing all xref:key-concepts.adoc#clip[recordings] in the space.
 
 === `markers`
 

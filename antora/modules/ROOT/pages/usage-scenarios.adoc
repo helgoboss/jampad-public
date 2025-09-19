@@ -4,7 +4,7 @@
 
 Solo musicians and ensembles alike love Jam Pad as safe and capable archive for their recorded material.
 
-After importing your recordings or recording them directly within the app, Jam Pad gives you many tools to categorize and rediscover them whenever you need.
+After importing existing recordings or recording them directly within the app, Jam Pad gives you many tools to categorize and rediscover them whenever you need.
 
 xref:key-concepts.adoc#multi-device-space[Multi-device spaces] or xref:key-concepts.adoc#cloud-space[Cloud spaces] make it easy to take selected portions of your music archive with you, without needing to keep everything on your mobile device.
 
@@ -22,7 +22,7 @@ The clou: You can do most of this without even looking at the screen! Instead, y
 
 == Review practice sessions
 
-Are you a classical or jazz musician? Then you probably practice a lot and the smallest detail matters. Recording your own practice and listening to it at a later point can help to look at your performance more objectively.
+Are you a classical or jazz musician? Then you probably practice a lot and the smallest details matter. Recording your own practice and listening to it at a later point can help to look at your performance more objectively.
 
 Jam Pad helps you with that by allowing you to easily point out passages that need more polishing or are great already. You can attach notes or comments to markers if so that you don't forget what the marker was about.
 
