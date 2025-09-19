@@ -62,8 +62,6 @@ Depending on your selected plan, limits apply:
 
 Simply spoken, clips are audio files.
 
-It can be recordings, finished
-
 [[clip-version]]
 === Clip version
 

@@ -1,0 +1,97 @@
+= Introduction
+
+|===
+|Last update of text: |`2025-09-15 (v0.1.0)`
+|Last update of screenshots: |`-`
+|===
+
+== What is Jam Pad?
+
+link:https://www.helgoboss.org/projects/jampad[Jam Pad] is a versatile app for managing recordings and musical ideas.
+
+It is designed to be an invaluable tool for everyone who deals with audio recordings: Musicians, composers, ensembles, bands, sound artists, music teachers, podcasters, podcast listeners and music studios.
+
+=== Introduction to basic concepts
+
+In Jam Pad, audio recordings are simply called xref:key-concepts.adoc#clip[clips]. Clips can be anything from improvisations, jam session recordings and different stages of a complete song (raw, mixed, mastered), to finished music, podcast episodes, field recordings or short one-shot samples.
+
+The other prominent items in Jam Pad are xref:key-concepts.adoc#marker[markers], xref:key-concepts.adoc#playlist[playlists] and xref:key-concepts.adoc#sheet[sheets].
+
+To keep everything neatly organized, Jam Pad provides the concept of xref:key-concepts.adoc#space[spaces]. A space is a self-contained collection of clips, markers, playlists, and so on.
+
+There are different kinds of spaces: xref:key-concepts.adoc#single-device-space[Single-device spaces], which are completely offline, xref:key-concepts.adoc#multi-device-space[multi-device spaces], which are synchronized directly between mobile phones and computers, and finally xref:key-concepts.adoc#cloud-space[cloud spaces], which are synchronized with the cloud and provide collaboration features.
+
+=== The app from a technical perspective
+
+It's a native app which runs on the following platforms:
+
+- Android phones and tablets
+- iOS phones and tablets
+- macOS computers
+- Windows computers
+
+Support for the following platforms is planned:
+
+- Linux computers
+- Browsers (very restricted feature set)
+
+== Special qualities
+
+Jam Pad is engineered from the ground up to unite a set of interesting qualities rarely seen in one place.
+
+=== Offline-first
+
+Most of Jam Pad's features work completely without internet access. This is not just an  indispensable feature for train rides or walks in the forest in countries with bad network coverage {empty}footnote:[Greetings from Germany!], it also makes Jam Pad generally very fast and snappy to use.
+
+Even collaborative features are usable offline and only require internet access for synchronization.
+
+=== Privacy-first
+
+Each xref:key-concepts.adoc#space[space] starts as a xref:key-concepts.adoc#single-device-space[single-device space]. That means its data is stored on your device only and will not be synced anywhere else (cloud or other devices) unless you explicitly want that.
+
+xref:key-concepts.adoc#multi-device-space[Multi-device spaces] allow you to synchronize your data directly between multiple devices, without sacrificing privacy.
+
+Finally, xref:key-concepts.adoc#cloud-space[Cloud spaces] enable collaborative features. For this, it is technically necessary to save your data on servers. Our servers are protected by state-of-the art security measures and hosted in Europe.
+
+For music studios (and interested users) who don't want to put their data in anyone else's hands, we plan to offer the opportunity to purchase a server license, which makes it possible to host the Jam Pad server engine yourself. This allows you to keep all data - including the user identity management - on your own machines, for example a NAS.
+
+[NOTE]
+====
+Please contact info@helgoboss.org if you are interested in self-hosting!
+====
+
+=== No account necessary
+
+A xref:key-concepts.adoc#account[Jam Pad account] is only required if you want to create or join a xref:key-concepts.adoc#cloud-space[] (to unlock Jam Pad's collaborative features) or if you want to sync xref:key-concepts.adoc#in-app-purchase[in-app purchases] across multiple platforms.
+
+=== Cross-platform
+
+Jam Pad is available for Android, iOS, macOS and Windows with most features available on all of those platforms. Synchronization of spaces between any of those platforms works seamlessly.
+
+=== Open data
+
+Jam Pad is not a one-way street for your data. You can xref:space-export-import.adoc[export] a space including all of its clips and metadata at any time. The export format is xref:space-export-import.adoc[well documented]. Want to migrate everything to another system at some point? No problem.
+
+Vice versa, it's possible to xref:space-export-import.adoc[import] data. If you have existing data that you want to migrate to Jam Pad, that's only a matter of building a file that corresponds to the export format and importing it into the app.
+
+=== Data safety
+
+Jam Pad allows you to create backups manually that you can restore whenever necessary.
+
+If you use xref:key-concepts.adoc#cloud-space[multi-device spaces] or xref:key-concepts.adoc#cloud-space[cloud spaces], your space will automatically end up on multiple machines, providing an additional safety layer.
+
+Most interestingly, Jam Pad embraces a "never lose anything" philosophy{empty}footnote:[You have the option to permanently delete media files, if you really want. This can be useful to save storage space or to delete accidentally imported recordings.]. Each space has a built-in safety net: every change is recorded, and nothing is lost. Today, it's already possible to browse your complete space history. Soon, you'll be able to jump back to any moment.
+
+=== Thoughtful internals
+
+There are many apps out there which look attractive but fall short when it comes to carrying our operations under the hood. Jam Pad is not one of them!
+
+As an example, the way Jam Pad lays out its data on your local device storage is xref:space-backup-restore.adoc[very logical] - one space corresponds to one folder. Within that space folder, core data is strictly separated from user-/device-specific data. That makes it possible to pass one space 1:1 to another Jam Pad installation just by copying a directory without the user- or device -specific data. This data layout also makes automated file-system-based backups a breeze.
+
+=== Versatile and scalable
+
+In stark contrast to other offers out there, Jam Pad is not just about collaboration. It starts being a useful tool much sooner in the production lifecycle. You can benefit from it even as a solo musician. Later you can use the same tool that you love for doing collaboration in bands or studios, so everything feels natural. It has an exceptionally wide range of xref:usage-scenarios.adoc[]. Jam Pad grows together with your needs!
+
+=== Fair pricing
+
+Jam Pad offers lots of great features for free. Most of the advanced features are available as a one-time purchase, which grants you a lifetime license and doesn't incur running fees. A paid subscription is only necessary for our cloud offer, which is fair because it requires regular maintenance and costs on our side.

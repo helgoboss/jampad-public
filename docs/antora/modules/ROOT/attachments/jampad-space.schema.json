@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$id": "https://jampad.app/schemas/jampad-space-export.schema.json",
+  "$id": "https://jampad.app/schemas/jampad-space.schema.json",
   "title": "Jam Pad Space Export",
   "description": "The format in which Jam Pad exports a single space",
   "$ref": "#/definitions/Space",
@@ -12,6 +12,10 @@
       "title": "Space",
       "description": "All contents of a single Jam Pad space that are not user/device-specific",
       "properties": {
+        "$schema": {
+          "type": "string",
+          "description": "URL pointing to this schema (as a hint for editors)"
+        },
         "customFieldsForClips": {
           "type": "array",
           "description": "All custom fields usable for clips",
