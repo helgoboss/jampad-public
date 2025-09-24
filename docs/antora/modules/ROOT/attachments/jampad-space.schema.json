@@ -105,7 +105,7 @@
         },
         "name": {
           "type": "string",
-          "description": "Field name"
+          "description": "Field display name"
         },
         "description": {
           "type": "string",
@@ -253,7 +253,7 @@
         "importId": {
           "type": "string",
           "format": "uuid",
-          "description": "If imported, this field contains a globally unique identifier that says by which specific original import job this clip version has been imported.",
+          "description": "If imported, this field contains a globally unique identifier that says by which specific import job this clip version has been originally imported.",
           "default": "ID of the import with which this JSON file is being imported"
         },
         "importBaseFolderHash": {
@@ -391,7 +391,7 @@
       "title": "Playlist",
       "description": "A playlist of clips and/or markers",
       "additionalProperties": false,
-      "required": ["id", "name", "items"],
+      "required": ["id", "name", "entries"],
       "properties": {
         "id": {
           "type": "string",
@@ -415,7 +415,7 @@
           "type": "string",
           "description": "Playlist name"
         },
-        "items": {
+        "entries": {
           "type": "array",
           "description": "Playlist entries. Each entry must be a Jam Pad item reference followed by a '#' character and an ID uniquely identifying the entry itself. Check the examples!",
           "uniqueItems": true,
