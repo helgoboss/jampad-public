@@ -154,6 +154,11 @@
           "type": "string",
           "description": "Identifier of the custom item. Must be unique within this collection."
         },
+        "authorId": {
+          "$ref": "#/definitions/SpaceMemberId",
+          "description": "Member who created this custom item",
+          "default": "Importer"
+        },
         "hidden": {
           "type": "boolean",
           "description": "Whether this item is hidden",
@@ -197,8 +202,9 @@
           "description": "Identifier of the clip. Must be unique within this space."
         },
         "authorId": {
-          "type": "integer",
-          "description": "TODO"
+          "$ref": "#/definitions/SpaceMemberId",
+          "description": "Member who recorded or imported this clip",
+          "default": "Importer"
         },
         "hidden": {
           "type": "boolean",
@@ -234,6 +240,11 @@
         "filePath": {
           "type": "string",
           "description": "Path to the actual media file. This path must be relative to the directory in which the JSON file is located."
+        },
+        "authorId": {
+          "$ref": "#/definitions/SpaceMemberId",
+          "description": "Member who recorded or imported this clip version",
+          "default": "Importer"
         },
         "recordedAt": {
           "$ref": "#/definitions/Timestamp",
@@ -291,6 +302,11 @@
       "maximum": 5,
       "description": "A rating. Ratings in Jam Pad start at 2, not at 1. This makes marker button interactions more intuitive."
     },
+    "SpaceMemberId": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Numeric ID that uniquely identifies a member within this space. Member ID 0 always represents the space creator."
+    },
     "CustomData": {
       "type": "object",
       "title": "Custom data",
@@ -309,8 +325,9 @@
           "description": "Identifier of the marker. Must be unique within this space."
         },
         "authorId": {
-          "type": "integer",
-          "description": "TODO"
+          "$ref": "#/definitions/SpaceMemberId",
+          "description": "Member who created this marker",
+          "default": "Importer"
         },
         "hidden": {
           "type": "boolean",
@@ -367,8 +384,9 @@
           "description": "Identifier of the comment. Must be unique within this space."
         },
         "authorId": {
-          "type": "integer",
-          "description": "TODO"
+          "$ref": "#/definitions/SpaceMemberId",
+          "description": "Member who wrote this comment",
+          "default": "Importer"
         },
         "hidden": {
           "type": "boolean",
@@ -398,8 +416,9 @@
           "description": "Identifier of the playlist. Must be unique within this space."
         },
         "authorId": {
-          "type": "integer",
-          "description": "TODO"
+          "$ref": "#/definitions/SpaceMemberId",
+          "description": "Member who created this playlist",
+          "default": "Importer"
         },
         "hidden": {
           "type": "boolean",
@@ -439,6 +458,11 @@
         "id": {
           "type": "string",
           "description": "Identifier of the sheet. Must be unique within this space."
+        },
+        "authorId": {
+          "$ref": "#/definitions/SpaceMemberId",
+          "description": "Member who created this sheet",
+          "default": "Importer"
         },
         "hidden": {
           "type": "boolean",
