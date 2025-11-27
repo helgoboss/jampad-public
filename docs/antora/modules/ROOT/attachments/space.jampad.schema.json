@@ -159,6 +159,7 @@
             "note",
             "tonalQuality",
             "bpm",
+            "perUserRating",
             "timeSignature",
             "item",
             "items"
@@ -372,7 +373,7 @@
           "default": "Checksum of the actual file content that is being imported"
         },
         "format": {
-          "$ref": "#/definitions/InternalMediaFormat",
+          "$ref": "#/definitions/ImportableMediaFormat",
           "description": "Format of the originally imported file.",
           "default": "Format of the actual file that is being imported"
         }
@@ -639,11 +640,14 @@
       "minimum": 0,
       "description": "Numeric ID that uniquely identifies a member within this space. Member ID 0 always represents the space creator."
     },
-    "InternalMediaFormat": {
-      "description": "The media formats that Jam Pad uses to store media internally (a subset of the importable formats).",
+    "ImportableMediaFormat": {
+      "description": "The media formats that Jam Pad can import.",
       "enum": [
-        "m4aAac",
-        "mp3Cbr"
+        "wav",
+        "mp3Cbr",
+        "mp3Vbr",
+        "flac",
+        "m4aAac"
       ]
     },
     "IconId": {

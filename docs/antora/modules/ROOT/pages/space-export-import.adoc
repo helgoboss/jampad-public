@@ -1,10 +1,6 @@
 = Space export/import
 
-Jam Pad allows you to export a space including all of its clips and other data to a folder of your choice. The reverse - importing from a folder - is also possible.
-
-== Export/import vs. Backup/restore
-
-
+Jam Pad allows you to export a space including all of its clips and other data to a folder of your choice. The reverse, importing from a folder, is also possible.
 
 == Export format
 
@@ -13,11 +9,11 @@ A space export is a folder with the following structure:
 [source,text]
 .Example
 ----
-my-space/
+hello/
 ├── assets/                             <1>
 │   ├── YSBSZJJZCGD68JDB969J4SDFAC.m4a  <2>
 │   ├── RS48WGQ5FZE6EZ7V1S16NJXFEW.mp3
-├── my-space.json                       <3>
+├── hello.space.jampad.json             <3>
 ----
 
 <1> The folder containing all space xref:key-concepts.adoc#asset[assets]
@@ -35,6 +31,12 @@ Let's look at an example:
 ====
 [source,json]
 ----
-include::example$jampad-export-nature-and-music.json[]
+include::example$nature-and-music-20250916-100619.space.jampad.json[]
 ----
 ====
+
+
+
+== Export/import vs. Backup/restore
+
+
