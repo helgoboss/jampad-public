@@ -1,6 +1,7 @@
 name: jampad
 title: Jam Pad Reference
 version: ~
+prerelease: true
 nav:
   - modules/ROOT/nav.adoc
 start_page: introduction.adoc
