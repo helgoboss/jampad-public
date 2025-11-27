@@ -41,7 +41,7 @@ Spaces that sync directly between your phones and computers without using the cl
 xref:key-concepts.adoc#cloud-space[Cloud spaces]::
 Spaces that sync through the cloud and support collaboration features.
 
-=== The app from a technical perspective
+=== Supported platforms
 
 Jam Pad runs natively on the following platforms:
 

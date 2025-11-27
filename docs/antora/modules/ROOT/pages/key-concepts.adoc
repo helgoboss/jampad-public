@@ -38,16 +38,16 @@ For this to work, you first need to create a <<account, Jam Pad account>> and lo
 
 All data of a cloud space will automatically be synchronized to the cloud and is by default **only** accessible from your account. You can log into the same account on your other devices and will automatically see the space there and work with it.
 
-Small data (such as markers) will be seamlessly synced bidirectionally between your device and the cloud, so that you can access it even after you go offline. Large data (such as clips) will always be synced to the cloud, so that it eventually always gets all of your clips. You can selectively download clips from the cloud to make them available offline as well.
+Small data (such as markers) will be seamlessly synced bidirectionally between your device and the cloud, so that you can access it even after you go offline. Large data (such as clips) will always be synced to the cloud. You can selectively download clips from the cloud to make them available offline as well.
 
-Cloud spaces come with an additional collaborative features! You can add invite other Jam Pad users to participate in your space, for example the members of your band or a client. They will see more or less the same clips and data and can contribute by uploading own clips, adding playlists, commenting, marking, creating or changing <<sheet,sheets>>. It's also possible to send <<message,messages>> to your team, for example to start talking about certain musical passages or improvements.
+Cloud spaces come with additional collaborative features! You can invite other Jam Pad users to participate in your space, for example the members of your band or a client. They will see more or less the same clips and data and can contribute by uploading own clips, adding playlists, commenting, marking, creating or changing <<sheet,sheets>>. It's also possible to send <<message,messages>> to your team, for example to start talking about certain musical passages or improvements.
 
 [NOTE]
 ====
 Creating and maintaining cloud spaces requires a paid subscription.
-But: Invited space members can join without subscription ❤️.
+But: Invited space members can join without subscription ❤️
 
-Depending on your selected plan, limits apply:
+Depending on your selected cloud plan, limits apply:
 
 * Maximum number of participating users (across all of your own cloud spaces)
 * Maximum storage space (across all of your own cloud spaces)
@@ -62,16 +62,20 @@ Depending on your selected plan, limits apply:
 
 Simply spoken, clips are audio files.
 
-[[clip-version]]
-=== Clip version
+TODO
 
 [[clip-id]]
 ==== Clip ID
 
+TODO
+
+[[clip-version]]
+==== Clip version
+
 [[asset]]
 === Asset
 
-In Jam Pad, an asset is a larger file such as an audio file (for a clip or audio marker) or a waveform peak file.
+In Jam Pad, an asset is a larger file, such as an audio file (representing a clip version or an audio marker) or a waveform peak file.
 
 [[asset-id]]
 ==== Asset ID
@@ -86,28 +90,46 @@ An asset ID is an uppercase, 26-character string that looks cryptic at first gla
 [[marker]]
 === Marker
 
+TODO
+
 [[playlist]]
 === Playlist
+
+TODO
 
 [[sheet]]
 === Sheet
 
+TODO
+
 [[comment]]
 === Comment
+
+TODO
 
 [[message]]
 === Message
 
+TODO
+
 === Custom metadata
 
+TODO
+
 [[custom-field]]
-==== Custom field
+==== Custom property
+
+TODO
 
 [[custom-item-type]]
 ==== Custom item type
 
+TODO
+
 [[custom-item]]
 ==== Custom item
+
+TODO
 
 
 == Other space-related things
@@ -115,22 +137,36 @@ An asset ID is an uppercase, 26-character string that looks cryptic at first gla
 [[space-export]]
 === Space export
 
+TODO
+
 
 == Device-to-device synchronization
+
+TODO
 
 [[main-device]]
 === Main device
 
+TODO
+
 [[companion-device]]
 === Companion device
 
+TODO
+
 == Cloud synchronization
+
+TODO
 
 [[account]]
 === Account
+
+TODO
 
 == App
 
 [[in-app-purchase]]
 === In-app purchase
+
+TODO
 

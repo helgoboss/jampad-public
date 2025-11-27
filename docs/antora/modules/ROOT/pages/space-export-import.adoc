@@ -4,6 +4,8 @@ Jam Pad allows you to export a space including all of its clips and other data t
 
 == Export format
 
+=== Folder structure
+
 A space export is a folder with the following structure:
 
 [source,text]
@@ -17,7 +19,7 @@ hello/
 ----
 
 <1> The folder containing all space xref:key-concepts.adoc#asset[assets]
-<2> Some assets, for example, the media files associated with clips or audio markers
+<2> The actual assets, for example, clip media files
 <3> A link:https://www.json.org/json-en.html[JSON] file that contains a snapshot of all the other data in this space (markers, playlists, sheets, ...)
 
 === The JSON file
