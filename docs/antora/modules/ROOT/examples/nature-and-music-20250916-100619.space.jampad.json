@@ -1,5 +1,5 @@
 {
-  "$schema": "https://jampad.app/schemas/jampad-space.schema.json",
+  "$schema": "https://jampad.app/schemas/space.jampad.schema.json",
   "customFieldsForClips": [
     {
       "id": "moods",

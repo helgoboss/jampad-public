@@ -71,14 +71,14 @@ Simply spoken, clips are audio files.
 [[asset]]
 === Asset
 
-In Jam Pad, an asset is a larger file such as a clip, a waveform peak file, a voice comment, and so on.
+In Jam Pad, an asset is a larger file such as an audio file (for a clip or audio marker) or a waveform peak file.
 
 [[asset-id]]
 ==== Asset ID
 
-Each asset in Jam Pad has a unique identifier. In most cases, you don't need to care about it, but if you dive into the app a bit deeper, it helps to know what it is.
+Every asset in Jam Pad has a unique identifier. Most of the time you won’t need to think about it, but if you explore the app more deeply, it’s useful to know what it represents.
 
-The asset ID is a cryptic-looking uppercase string with 26 characters. It's actually a fingerprint of the asset content. That means 2 assets with exactly the same content will result in exactly the same fingerprint. This is great because it means you never get duplicates in Jam Pad (within one space), which saves valuable storage space.
+An asset ID is an uppercase, 26-character string that looks cryptic at first glance. It’s actually a checksum of the asset’s content. This means that two assets with identical content will always produce the same ID. As a result, Jam Pad automatically avoids duplicates within a space, helping you save storage.
 
 
 

@@ -14,23 +14,19 @@ A space export is a folder with the following structure:
 .Example
 ----
 my-space/
-├── assets/                          <1>
-│   ├── YSBSZJJZCGD68JDB969J4SDFAC/  <2>
-│   │   ├── media.mp3                <3>
-│   │   ├── comment-GL5A.m4a
-│   ├── RS48WGQ5FZE6EZ7V1S16NJXFEW/
-│   │   ├── media.m4a
-├── my-space.json                    <4>
+├── assets/                             <1>
+│   ├── YSBSZJJZCGD68JDB969J4SDFAC.m4a  <2>
+│   ├── RS48WGQ5FZE6EZ7V1S16NJXFEW.mp3
+├── my-space.json                       <3>
 ----
 
 <1> The folder containing all space xref:key-concepts.adoc#asset[assets]
-<2> The asset folder is grouped into subfolders. Each subfolder typically represents one clip, its name being the xref:key-concepts.adoc#asset-id[].
-<3> The actual audio file in one of Jam Pad's internally supported audio formats (always called `media.*`)
-<4> A link:https://www.json.org/json-en.html[JSON] file that contains a snapshot of all the other data in this space (markers, playlists, sheets, ...)
+<2> Some assets, for example, the media files associated with clips or audio markers
+<3> A link:https://www.json.org/json-en.html[JSON] file that contains a snapshot of all the other data in this space (markers, playlists, sheets, ...)
 
 === The JSON file
 
-link:https://www.json.org/json-en.html[JSON] is a very widely used data exchange format. Unlike CSV, it can easily represent nested structures, which is important because Jam Pad spaces can get quite complex.
+link:https://www.json.org/json-en.html[JSON] is a widely used data exchange format. Unlike CSV, it can easily represent nested structures, which is important because Jam Pad spaces can get quite complex.
 
 Let's look at an example:
 
@@ -42,52 +38,3 @@ Let's look at an example:
 include::example$jampad-export-nature-and-music.json[]
 ----
 ====
-
-The top-level structure is a map which can contain the keys described in below subsections. Each one of them is optional.
-
-=== `customItemTypes`
-
-This is an array containing all xref:key-concepts.adoc#custom-item-type[custom item types] defined for that space.
-
-Each item type is described as a map:
-
-[source,json]
-----
-{
-  "id": "moods",
-  "hidden": false,
-  "name": "Moods"
-}
-----
-
-`id`:: Identifier of the item type. Must be unique within the space.
-`hidden`:: Whether the
-
-=== `customFieldsForFiles`
-
-This is an array containing all xref:key-concepts.adoc#custom-field[custom fields] defined for xref:key-concepts.adoc#clip[recordings] in that space.
-
-=== `customFieldsForMarkers`
-
-This is an array containing all xref:key-concepts.adoc#custom-field[custom fields] defined for xref:key-concepts.adoc#marker[markers] in that space.
-
-=== `customItems`
-
-This is a map containing all xref:key-concepts.adoc#custom-item[custom items] defined for that space.
-
-=== `files`
-
-This is an array describing all xref:key-concepts.adoc#clip[recordings] in the space.
-
-=== `markers`
-
-This is an array describing all xref:key-concepts.adoc#marker[markers] in the space.
-
-
-=== `playlists`
-
-This is an array describing all xref:key-concepts.adoc#playlist[playlists] in the space.
-
-=== `sheets`
-
-This is an array describing all xref:key-concepts.adoc#sheet[sheets] in the space.

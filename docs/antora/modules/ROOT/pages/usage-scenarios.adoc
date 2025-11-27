@@ -2,7 +2,7 @@
 
 == Archive and organize personal or band recordings
 
-Solo musicians and ensembles alike love Jam Pad as a safe and capable archive for their recorded material.
+Solo musicians and ensembles alike may use Jam Pad as a safe and capable archive for their recorded material.
 
 After importing existing recordings or recording them directly within the app, Jam Pad gives you many tools to categorize and rediscover them whenever you need.
 
@@ -18,15 +18,15 @@ At first, record or import your improvisations into Jam Pad. It then becomes you
 . Rate your ideas to identify the best ones
 . Categorize your ideas by assigning moods, custom tags, musical properties, etc.
 
-The clou: You can do most of this without even looking at the screen! Instead, you can have a walk or enjoy your train ride while immersing in your music and press buttons whenever you like something.
+The clou: You can do most of this without even looking at the screen! Instead, you can have a walk or enjoy your train ride while immersing in your music and press remote control buttons whenever you like something.
 
 == Review practice sessions
 
 Are you a classical or jazz musician? Then you probably practice a lot and the smallest details matter. Recording your own practice and listening to it at a later point can help to look at your performance more objectively.
 
-Jam Pad helps you with that by allowing you to easily point out passages that need more polishing or are great already. You can attach notes or comments to markers if so that you don't forget what the marker was about.
+Jam Pad helps you with that by allowing you to easily point out passages that need more polishing or are great already. You can attach notes or comments to markers so that you don't forget what the marker was about.
 
-You can do this even on the go by adding voice comments on the press of a remote control button.
+You can do this even on the go by adding voice markers on the press of a remote control button.
 
 == Collaborate on recordings, ideas, plan gigs
 

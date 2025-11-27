@@ -1,0 +1,679 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "https://jampad.app/schemas/space.jampad.schema.json",
+  "title": "Jam Pad Space Export",
+  "description": "The format in which Jam Pad exports a single space",
+  "$ref": "#/definitions/Space",
+  "definitions": {
+    "Space": {
+      "type": "object",
+      "required": [],
+      "additionalProperties": false,
+      "title": "Space",
+      "description": "All contents of a single Jam Pad space that are not user/device-specific",
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "description": "URL pointing to this schema (as a hint for editors)"
+        },
+        "space": {
+          "$ref": "#/definitions/SpaceData",
+          "description": "Basic data about this space"
+        },
+        "customFieldsForClips": {
+          "type": "array",
+          "description": "All custom properties usable for clips",
+          "items": {
+            "$ref": "#/definitions/CustomField"
+          }
+        },
+        "customFieldsForMarkers": {
+          "type": "array",
+          "description": "All custom properties usable for markers",
+          "items": {
+            "$ref": "#/definitions/CustomField"
+          }
+        },
+        "customItemTypes": {
+          "description": "All types of custom items usable for custom properties",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomItemType"
+          }
+        },
+        "customItems": {
+          "description": "All custom items usable for custom properties. Each map key must be the ID of a custom item type. Each value must be the list of custom items.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/CustomItem"
+            }
+          }
+        },
+        "clips": {
+          "description": "All clips",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Clip"
+          }
+        },
+        "markers": {
+          "description": "All markers",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Marker"
+          }
+        },
+        "playlists": {
+          "description": "All playlists",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Playlist"
+          }
+        },
+        "sheets": {
+          "description": "All sheets",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Sheet"
+          }
+        },
+        "clipPlayEvents": {
+          "description": "All current-user play events of a clip",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ClipPlayEvent"
+          }
+        }
+      }
+    },
+    "SpaceData": {
+      "type": "object",
+      "title": "Space data",
+      "description": "Basic space properties",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the space"
+        },
+        "color": {
+          "$ref": "#/definitions/RgbColor",
+          "description": "Color of the space"
+        }
+      }
+    },
+    "CustomField": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "type"
+      ],
+      "title": "Custom field",
+      "description": "A custom property usable for clips or markers, depending in which list it appears",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier of the custom property. Must be unique within this space."
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "Whether this property is archived",
+          "default": false
+        },
+        "name": {
+          "type": "string",
+          "description": "Property display name"
+        },
+        "icon": {
+          "$ref": "#/definitions/IconId",
+          "description": "Property display icon"
+        },
+        "description": {
+          "type": "string",
+          "description": "Explains the purpose of this property"
+        },
+        "position": {
+          "type": "integer",
+          "description": "Position of this property relative to other properties. Influences where it appears in the Jam Pad user interface.",
+          "default": 1000
+        },
+        "showInListView": {
+          "type": "boolean",
+          "description": "Whether this property should show up in Jam Pad's list views (if supported by this property type).",
+          "default": false
+        },
+        "showInAdvancedFilter": {
+          "type": "boolean",
+          "description": "Whether this property should show up in Jam Pad's bottom filter (if supported by this property type).",
+          "default": false
+        },
+        "type": {
+          "enum": [
+            "singleLineText",
+            "multiLineText",
+            "link",
+            "note",
+            "tonalQuality",
+            "bpm",
+            "timeSignature",
+            "item",
+            "items"
+          ],
+          "description": "Defines which type of values this property accepts and how Jam Pad displays them"
+        },
+        "itemTypeId": {
+          "type": "string",
+          "description": "For type 'item' and 'items', this defines the collection of choices among which users may pick"
+        }
+      }
+    },
+    "CustomItemType": {
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "title": "Custom item type",
+      "description": "Defines a possible collection of items. The actual items for the collection are not yet defined.",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier of the custom item type. Must be unique within this space."
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "Whether this item collection is archived",
+          "default": false
+        },
+        "name": {
+          "type": "string",
+          "description": "Item collection name"
+        },
+        "nameIsPath": {
+          "type": "boolean",
+          "description": "Whether the item name contains slashes to create a folder structure and should be displayed as such",
+          "default": false
+        }
+      }
+    },
+    "CustomItem": {
+      "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
+      "title": "Custom item",
+      "description": "Defines an actual custom item belonging to the surrounding collection.",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier of the custom item. Must be unique within this collection."
+        },
+        "authorId": {
+          "$ref": "#/definitions/SpaceMemberId",
+          "description": "Member who created this custom item",
+          "default": "Importer"
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "Whether this item is archived",
+          "default": false
+        },
+        "name": {
+          "type": "string",
+          "description": "Item name"
+        },
+        "paletteColor": {
+          "description": "Picks a color from a dynamic palette. Only applied if no custom color is given.",
+          "type": "integer"
+        },
+        "customColor": {
+          "description": "Defines a custom color in which this item will be appear.",
+          "$ref": "#/definitions/RgbColor"
+        },
+        "groupId": {
+          "type": "string",
+          "description": "Can be used to group this item together with other items, showing them visually grouped"
+        }
+      }
+    },
+    "Clip": {
+      "title": "Clip",
+      "description": "Describes a clip",
+      "type": "object",
+      "required": [
+        "id",
+        "versions"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier of the clip. Must be unique within this space."
+        },
+        "authorId": {
+          "$ref": "#/definitions/SpaceMemberId",
+          "description": "Member who recorded or imported this clip",
+          "default": "Importer"
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "Whether this clip is archived",
+          "default": false
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the clip",
+          "default": "Metadata title or file name of the actually imported file"
+        },
+        "customData": {
+          "$ref": "#/definitions/CustomData",
+          "description": "Custom data associated with this clip"
+        },
+        "comments": {
+          "type": "array",
+          "description": "Comments associated with this clip",
+          "items": {
+            "$ref": "#/definitions/Comment"
+          }
+        },
+        "versions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/ClipVersion"
+          },
+          "description": "List of clip versions, starting at version 1"
+        }
+      }
+    },
+    "ClipVersion": {
+      "title": "Clip version",
+      "description": "Describes a particular version of a clip",
+      "type": "object",
+      "required": [
+        "filePath"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "filePath": {
+          "type": "string",
+          "description": "Path to the actual media file. This path must be relative to the directory in which the JSON file is located."
+        },
+        "authorId": {
+          "$ref": "#/definitions/SpaceMemberId",
+          "description": "Member who recorded or imported this clip version",
+          "default": "Importer"
+        },
+        "recordedAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Certain timestamp that says when this clip version was initially recorded"
+        },
+        "origin": {
+          "enum": [
+            "imported",
+            "recorded"
+          ],
+          "description": "Whether this clip version was recorded directly within Jam Pad or imported from outside",
+          "default": "imported"
+        },
+        "importedOrigin": {
+          "$ref": "#/definitions/ImportedClipVersionOrigin",
+          "description": "More information about this clip version if its origin is 'imported'"
+        }
+      }
+    },
+    "ImportedClipVersionOrigin": {
+      "description": "Information about an imported clip version",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "installationId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Globally unique identifier that says in which specific Jam Pad installation this clip version has been originally imported.",
+          "default": "ID of the Jam Pad installation which is importing this JSON file"
+        },
+        "importId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Globally unique identifier that says by which specific import job this clip version has been originally imported.",
+          "default": "ID of the import with which this JSON file is being imported"
+        },
+        "baseFolderHash": {
+          "type": "string",
+          "description": "Cryptic string that says from which absolute base path the original import was started. It's cryptic for a reason: In collaborative spaces, this string will be visible to all space members. To protect the original importer's privacy, we don't save the base folder in plain text (it could contain an OS username).",
+          "default": "Checksum of the actual base folder name from which is being imported"
+        },
+        "baseFolderName": {
+          "type": "string",
+          "description": "Name of the folder from which the original import was started.",
+          "default": "Name of the actual base folder from which is being imported"
+        },
+        "contentSize": {
+          "type": "integer",
+          "description": "Size of the originally imported file in bytes.",
+          "default": "Size of the actually imported file"
+        },
+        "path": {
+          "type": "string",
+          "description": "Relative path from which this media was originally imported.",
+          "default": "Same as 'path'"
+        },
+        "contentHash": {
+          "type": "string",
+          "description": "Checksum of the originally imported file content.",
+          "default": "Checksum of the actual file content that is being imported"
+        },
+        "format": {
+          "$ref": "#/definitions/InternalMediaFormat",
+          "description": "Format of the originally imported file.",
+          "default": "Format of the actual file that is being imported"
+        }
+      }
+    },
+    "Marker": {
+      "title": "Marker",
+      "description": "Describes a marker within a clip.",
+      "type": "object",
+      "required": [
+        "id",
+        "clipVersionId",
+        "start"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier of the marker. Must be unique within this space."
+        },
+        "authorId": {
+          "$ref": "#/definitions/SpaceMemberId",
+          "description": "Member who created this marker",
+          "default": "Importer"
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "Whether this marker is archived",
+          "default": false
+        },
+        "clipVersionId": {
+          "type": "string",
+          "description": "ID of the clip version with which this marker is associated."
+        },
+        "name": {
+          "type": "string",
+          "description": "An optional marker name"
+        },
+        "start": {
+          "type": "integer",
+          "description": "Start position of the marker within the associated clip, in milliseconds."
+        },
+        "length": {
+          "type": "integer",
+          "description": "An optional marker length. If you provide this, the marker will not just mark a single point in time but a complete region of the clip. The length must be in milliseconds."
+        },
+        "createdAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Marker creation timestamp",
+          "default": "Current time at import"
+        },
+        "comments": {
+          "type": "array",
+          "description": "Comments associated with this marker",
+          "items": {
+            "$ref": "#/definitions/Comment"
+          }
+        },
+        "customData": {
+          "$ref": "#/definitions/CustomData",
+          "description": "Custom data associated with this marker"
+        }
+      }
+    },
+    "Playlist": {
+      "type": "object",
+      "title": "Playlist",
+      "description": "A playlist of clips and/or markers",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "entries"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier of the playlist. Must be unique within this space."
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "Whether this playlist is archived",
+          "default": false
+        },
+        "authorId": {
+          "$ref": "#/definitions/SpaceMemberId",
+          "description": "Member who created this playlist",
+          "default": "Importer"
+        },
+        "createdAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Comment creation timestamp",
+          "default": "Current time at import"
+        },
+        "name": {
+          "type": "string",
+          "description": "Playlist name"
+        },
+        "entries": {
+          "type": "array",
+          "description": "Playlist entries. Each entry must be a Jam Pad item reference followed by a '#' character and an ID uniquely identifying the entry itself. Check the examples!",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "examples": [
+              "/marker/019951e4-22aa-78e2-a8e8-4a36823d63aa#6DHP",
+              "/clip/019951ef-5d9a-7a48-bbb9-23d7d9c5f4fc#TYCX"
+            ]
+          }
+        }
+      }
+    },
+    "Sheet": {
+      "type": "object",
+      "title": "Sheet",
+      "description": "A structured document that can embed Jam Pad items such as clips or markers",
+      "required": [
+        "id",
+        "content"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier of the sheet. Must be unique within this space."
+        },
+        "authorId": {
+          "$ref": "#/definitions/SpaceMemberId",
+          "description": "Member who created this sheet",
+          "default": "Importer"
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "Whether this sheet is archived",
+          "default": false
+        },
+        "title": {
+          "type": "string",
+          "description": "Sheet title",
+          "default": "Same like ID"
+        },
+        "content": {
+          "$ref": "#/definitions/SheetContent",
+          "description": "Sheet content"
+        }
+      }
+    },
+    "SheetContent": {
+      "type": "object",
+      "title": "SheetContent",
+      "additionalProperties": true,
+      "description": "TODO"
+    },
+    "Comment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "content"
+      ],
+      "title": "Comment",
+      "description": "A comment that can be associated with a clip or marker",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier of the comment. Must be unique within this space."
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "Whether this comment is archived",
+          "default": false
+        },
+        "authorId": {
+          "$ref": "#/definitions/SpaceMemberId",
+          "description": "Member who wrote this comment",
+          "default": "Importer"
+        },
+        "createdAt": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Comment creation timestamp",
+          "default": "Current time at import"
+        },
+        "content": {
+          "type": "string",
+          "description": "Comment text"
+        }
+      }
+    },
+    "ClipPlayEvent": {
+      "type": "object",
+      "title": "Clip play event",
+      "description": "Represents a concrete playback that occurred in the past.",
+      "additionalProperties": false,
+      "required": [
+        "timestamp",
+        "clipVersionId",
+        "start",
+        "length"
+      ],
+      "properties": {
+        "timestamp": {
+          "$ref": "#/definitions/Timestamp",
+          "description": "Timestamp that says when clip playback started"
+        },
+        "clipVersionId": {
+          "type": "string",
+          "description": "ID of the clip version that was played back."
+        },
+        "start": {
+          "type": "integer",
+          "description": "Playback start position within the associated clip, in milliseconds."
+        },
+        "length": {
+          "type": "integer",
+          "description": "Length of the playback session within this clip."
+        }
+      }
+    },
+    "CustomData": {
+      "type": "object",
+      "title": "Custom data",
+      "description": "Arbitrary data. Each key of this object corresponds to the ID of a custom property. If the custom property doesn't exist, the data will be kept but not shown in the user interface. The structure of the value must correspond to the type of the custom property. It can be anything from a simple number to a complex nested object.",
+      "additionalProperties": true
+    },
+    "RgbColor": {
+      "title": "RGB color",
+      "description": "Defines a custom RGB color",
+      "type": "array",
+      "items": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255,
+          "description": "Amount of red"
+        },
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255,
+          "description": "Amount of green"
+        },
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255,
+          "description": "Amount of blue"
+        }
+      ],
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "Timestamp": {
+      "type": "integer",
+      "description": "Timezone-less timestamp, expressed in milliseconds since epoch UTC"
+    },
+    "Rating": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "A 1-to-5 star rating."
+    },
+    "SpaceMemberId": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Numeric ID that uniquely identifies a member within this space. Member ID 0 always represents the space creator."
+    },
+    "InternalMediaFormat": {
+      "description": "The media formats that Jam Pad uses to store media internally (a subset of the importable formats).",
+      "enum": [
+        "m4aAac",
+        "mp3Cbr"
+      ]
+    },
+    "IconId": {
+      "description": "Reference to an icon which is provided by Jam Pad and can be used for custom properties.",
+      "enum": [
+        "notes",
+        "lyrics",
+        "calendarMonth",
+        "starRate",
+        "speed",
+        "clockLoader80",
+        "musicNote",
+        "mood",
+        "folder",
+        "yinYang",
+        "hourglassBottom",
+        "description",
+        "bookmark",
+        "label",
+        "colors",
+        "shortText",
+        "textSnippet",
+        "link",
+        "homeStorage",
+        "highQuality",
+        "autoAwesome",
+        "mic",
+        "locationOn",
+        "id"
+      ]
+    }
+  }
+}
