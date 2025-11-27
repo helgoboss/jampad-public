@@ -4,6 +4,16 @@ Jam Pad allows you to export a space including all of its clips and other data t
 
 == Export format
 
+[TIP]
+====
+You don't need to understand anything in this section if you simply want to export or import spaces!
+
+This section is intended for ...
+
+- ... power users who want to modify their spaces in a text editor.
+- ... developers who want to build an import/export function for their own software.
+====
+
 === Folder structure
 
 A space export is a folder with the following structure:
@@ -29,13 +39,17 @@ link:https://www.json.org/json-en.html[JSON] is a widely used data exchange form
 Let's look at an example:
 
 [%collapsible]
-.Example JSON file
+.Example space export file
 ====
 [source,json]
 ----
 include::example$nature-and-music-20250916-100619.space.jampad.json[]
 ----
 ====
+
+The structure of space export files is specified in link:https://json-schema.app/view/%23?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhelgoboss%2Fjampad-public%2Frefs%2Fheads%2Fmain%2Fdocs%2Fantora%2Fmodules%2FROOT%2Fattachments%2Fspace.jampad.schema.json[this JSON Schema file]. JSON schema files are made for machines, so they are not very readable. However, you can use a JSON Schema Viewer to read it like a specification:
+
+link:https://json-schema.app/view/%23?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhelgoboss%2Fjampad-public%2Frefs%2Fheads%2Fmain%2Fdocs%2Fantora%2Fmodules%2FROOT%2Fattachments%2Fspace.jampad.schema.json[Inspect Jam Pad space export schema in JSON Schema Viewer!]
 
 
 
