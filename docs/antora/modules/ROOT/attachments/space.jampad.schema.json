@@ -331,6 +331,7 @@
       }
     },
     "ImportedClipVersionOrigin": {
+      "title": "Clip version origin (imported)",
       "description": "Information about an imported clip version",
       "type": "object",
       "additionalProperties": false,
@@ -523,7 +524,7 @@
     },
     "SheetContent": {
       "type": "object",
-      "title": "SheetContent",
+      "title": "Sheet content",
       "additionalProperties": true,
       "description": "TODO"
     },
@@ -636,11 +637,13 @@
       "description": "A 1-to-5 star rating."
     },
     "SpaceMemberId": {
+      "title": "Space member ID",
       "type": "integer",
       "minimum": 0,
       "description": "Numeric ID that uniquely identifies a member within this space. Member ID 0 always represents the space creator."
     },
     "ImportableMediaFormat": {
+      "title": "Importable media format",
       "description": "The media formats that Jam Pad can import.",
       "enum": [
         "wav",
@@ -651,6 +654,7 @@
       ]
     },
     "IconId": {
+      "title": "Icon ID",
       "description": "Reference to an icon which is provided by Jam Pad and can be used for custom properties.",
       "enum": [
         "notes",
