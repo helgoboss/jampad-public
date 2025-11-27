@@ -47,7 +47,7 @@ include::example$nature-and-music-20250916-100619.space.jampad.json[]
 ----
 ====
 
-The structure of space export files is specified in link:https://json-schema.app/view/%23?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhelgoboss%2Fjampad-public%2Frefs%2Fheads%2Fmain%2Fdocs%2Fantora%2Fmodules%2FROOT%2Fattachments%2Fspace.jampad.schema.json[this JSON Schema file]. JSON schema files are made for machines, so they are not very readable. However, you can use a JSON Schema Viewer to read it like a specification:
+The structure of space export files is specified in link:https://raw.githubusercontent.com/helgoboss/jampad-public/refs/heads/main/docs/antora/modules/ROOT/attachments/space.jampad.schema.json[this JSON Schema file]. JSON schema files are made for machines, so they are not very readable. However, you can use a JSON Schema Viewer to read it like a specification:
 
 link:https://json-schema.app/view/%23?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhelgoboss%2Fjampad-public%2Frefs%2Fheads%2Fmain%2Fdocs%2Fantora%2Fmodules%2FROOT%2Fattachments%2Fspace.jampad.schema.json[Inspect Jam Pad space export schema in JSON Schema Viewer!]
 
