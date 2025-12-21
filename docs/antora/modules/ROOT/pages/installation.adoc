@@ -1,0 +1,7 @@
+= Installation
+
+== Android
+
+=== Troubleshooting
+
+- Make sure to have the latest Chrome app installed. Otherwise, the sheet section of Jam Pad might not work properly.

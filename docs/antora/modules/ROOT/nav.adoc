@@ -1,5 +1,7 @@
 * xref:introduction.adoc[]
+* xref:installation.adoc[]
 * xref:usage-scenarios.adoc[]
 * xref:key-concepts.adoc[]
 * xref:space-backup-restore.adoc[]
 * xref:space-export-import.adoc[]
+* xref:remote-control.adoc[]

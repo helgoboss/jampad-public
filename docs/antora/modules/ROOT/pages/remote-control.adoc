@@ -1,0 +1,40 @@
+= Remote control
+
+Jam Pad can be controlled with external hardware remotes. For example, you can assign a button on a Bluetooth remote to quickly add markers.
+
+The following types of devices are supported today, with more planned.
+
+== Headphones & Bluetooth remotes
+
+Jam Pad supports standard media control buttons, as found on **headphones**, **Bluetooth shutter remotes** and **Bluetooth media remotes**.
+These usually provide buttons or gestures for **Play/pause**, **Skip previous/next**, and **Volume up/down**.
+By default, the buttons perform exactly these actions, but you can remap them freely.
+
+NOTE: **Volume up/down** buttons can only be remapped on Android devices.
+
+A key limitation of generic media remotes is that multiple devices (e.g., a headphone and a media remote) are treated as a single device by your phone or tablet. For example, you cannot assign the headphone's play/pause button and the media remote's play/pause button to different Jam Pad actions.
+
+Some media remotes have extra buttons that simulate keyboard key presses. However, due to security restrictions on your phone or tablet, these can usually only be used when the screen is on.
+
+Finally, your device will either just process button-down events (iOS) *or* button-up events (Android). This prevents the use of Jam Pad's advanced features, such as short/long press and turbo.
+
+== Computer keyboards
+
+You can connect a standard computer keyboard to trigger Jam Pad actions by pressing keys.
+
+Keyboard control usually works only when the screen is on. Most keys (except above mentioned media control buttons) send both **button-down** and **button-up** events, allowing you to use Jam Pad’s advanced features, such as short/long press and turbo.
+
+== AirTurn Digit III
+
+A compact but unfortunately discontinued Bluetooth controller designed for musicians. Set it to **Mode 1 – GATT** to freely assign
+the **←**, **→**, **↑**, **↓**, and **OK** buttons.
+
+A major benefit of this controller is that it connects as its own device rather than masquerading
+as a headphone or keyboard. This means you can use it **alongside** your regular headphone media controls.
+It also sends both **button-down** and **button-up** events, enabling Jam Pad’s advanced modes
+like short/long press and turbo. You can even combine many of them and map their buttons to different
+actions.
+
+Links:
+
+* link:https://www.youtube.com/watch?v=Kc86s8wRlnc[Product video]
