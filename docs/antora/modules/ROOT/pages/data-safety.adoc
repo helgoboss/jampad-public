@@ -1,0 +1,29 @@
+= Data safety
+
+[[delete-account]]
+== Delete my account
+
+If you want to delete all *Jam Pad* data from your *Helgoboss Projects* account, please follow these steps:
+
+. Open the app settings
+. Choose *Delete account*
+. Confirm
+
+This will do the following:
+
+- It will delete all cloud spaces owned by you from the cloud.
+- It will delete all your memberships in cloud spaces in which you are participating.
+- It will log you out.
+- The data locally stored on this device will not be touched.
+
+There's a grace period of 30 days. If you log in during that time, Jam Pad will ask
+you if you want to recover your account, in which case everything will be restored.
+If you don't recover your account within 30 days, the data will be deleted without any possibility
+to recover it.
+
+This will not delete your *Helgoboss Projects* account because this one also serves other purposes:
+
+- It's used to make paid Jam Pad features purchased on one platform (for example, Android) available on other platforms as well (for example, iOS, Windows, Linux, macOS). Deleting the account makes this impossible.
+- In the future, it might also be used for other Helgoboss Projects products.
+
+If you want to delete your *Helgoboss Projects* account, too, please write an email to support@helgoboss.org.

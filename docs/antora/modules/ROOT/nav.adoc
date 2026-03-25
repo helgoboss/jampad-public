@@ -5,3 +5,4 @@
 * xref:space-backup-restore.adoc[]
 * xref:space-export-import.adoc[]
 * xref:remote-control.adoc[]
+* xref:data-safety.adoc[]
