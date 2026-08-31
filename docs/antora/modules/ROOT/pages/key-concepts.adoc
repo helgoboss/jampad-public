@@ -3,52 +3,52 @@
 [[space]]
 == Space
 
-Spaces are the top-level organizational unit of Jam Pad. A space is a self-contained collection of <<clip,clips>>, <<marker,markers>>, <<playlist,playlists>>, <<sheet,sheets>> and other metadata.
+Spaces are the top-level organizational units in Jam Pad. A space is a self-contained collection of <<clip,clips>>, <<marker,markers>>, <<playlist,playlists>>, <<sheet,sheets>>, and other metadata.
 
-Musicians will typically create at least one space for themselves and then one for each band / musical project. Studios will typically create one space for each client or album.
+Musicians will typically create at least one space for themselves and additional spaces for each band or musical project. Studios will typically create one space for each client or album.
 
 [[single-device-space]]
 === Single-device space
 
 All clips and other data in a single-device space stay on your device and your device only. You can create as many single-device spaces as you want.
 
-Each space starts as single-device space and can later be upgraded to a <<multi-device-space>> or <<cloud-space>>.
+Each space starts as a single-device space and can later be upgraded to a <<multi-device-space>> or <<cloud-space>>.
 
 [[multi-device-space]]
 === Multi-device space
 
-A multi-device space is a space that is synchronized between multiple devices directly, so that you can conveniently access it from all of them, for example from your mobile phone and your computer.
+A multi-device space is synchronized directly between multiple devices, allowing you to conveniently access it from all of them, for example, from your mobile phone and your computer.
 
-For this to work, you first need to configure one Jam Pad installation to act as <<main-device>> and then pair it with one or more <<companion-device, companion devices>>. For example, a computer makes a good main device and a mobile phone a good companion. After this one-time setup, you can upgrade arbitrary <<single-device-space,single-device spaces>> to multi-device spaces.
+For this to work, you first need to configure one Jam Pad installation to act as the <<main-device, main device>> and then pair it with one or more <<companion-device,companion devices>>. For example, a computer makes a good main device, while a mobile phone makes a good companion device. After this one-time setup, you can upgrade arbitrary <<single-device-space,single-device spaces>> to multi-device spaces.
 
-Small data (such as markers) of a multi-device space will be seamlessly synced bidirectionally between your paired devices, so that you can access it even after connection between the devices is lost. Large data (such as clips) will always be synced to the <<main-device>>, so that it eventually always gets all of your clips. <<companion-device,Companion devices>> can selectively download clips from the main device because companion devices typically have limited storage.
+Small data (such as markers) in a multi-device space is seamlessly synchronized bidirectionally between your paired devices, so you can access it even when the devices are no longer connected. Large data (such as clips) is always synchronized to the <<main-device>>, ensuring that it eventually contains all of your clips. <<companion-device,Companion devices>> can selectively download clips from the main device, since companion devices typically have more limited storage.
 
-The connection happens over your local Wi-Fi network and optionally even over the internet. In both cases, it's an end-to-end-encrypted peer-to-peer connection. Perfect for privacy!
+The connection happens over your local Wi-Fi network and can optionally work over the internet as well. In both cases, your devices communicate using an end-to-end-encrypted peer-to-peer connection. Perfect for privacy!
 
-TIP: When synchronizing over the internet, so-called link:https://en.wikipedia.org/wiki/Relay_network[relay servers] might help to establish the initial connection between the devices, but even then, no servers will be able to read your data.
+TIP: When synchronizing over the internet, so-called link:https://en.wikipedia.org/wiki/Relay_network[relay servers] may help establish the initial connection between your devices. Even then, the servers cannot read your data.
 
 NOTE: Multi-device synchronization is a paid feature.
 
 [[cloud-space]]
 === Cloud space
 
-A cloud space is a private space that lives in the internet and can be synchronized from and to arbitrary devices, so that you and invited space members (and nobody else!) can conveniently access it from everywhere.
+A cloud space is a private space stored in the cloud and synchronized with arbitrary devices, allowing you and invited space members—and nobody else—to conveniently access it from anywhere.
 
-For this to work, you first need to create a <<account, Jam Pad account>> and log in. After this one-time setup, you can upgrade arbitrary <<single-device-space,single-device spaces>> to cloud spaces.
+For this to work, you first need to create a <<account,Jam Pad account>> and log in. After this one-time setup, you can upgrade arbitrary <<single-device-space,single-device spaces>> to cloud spaces.
 
-All data of a cloud space will automatically be synchronized to the cloud and is by default **only** accessible from your account. You can log into the same account on your other devices and will automatically see the space there and work with it.
+All data in a cloud space is automatically synchronized to the cloud and, by default, is **only** accessible through your account. You can log in to the same account on your other devices, where the space will automatically appear and be ready to use.
 
-Small data (such as markers) will be seamlessly synced bidirectionally between your device and the cloud, so that you can access it even after you go offline. Large data (such as clips) will always be synced to the cloud. You can selectively download clips from the cloud to make them available offline as well.
+Small data (such as markers) is seamlessly synchronized bidirectionally between your device and the cloud, so you can access it even when you go offline. Large data (such as clips) is always synchronized to the cloud. You can selectively download clips from the cloud to make them available offline as well.
 
-Cloud spaces come with additional collaborative features! You can invite other Jam Pad users to participate in your space, for example the members of your band or a client. They will see more or less the same clips and data and can contribute by uploading own clips, adding playlists, commenting, marking, creating or changing <<sheet,sheets>>.
+Cloud spaces also come with collaborative features! You can invite other Jam Pad users to participate in your space—for example, members of your band or a client. They will see largely the same clips and data and can contribute by uploading their own clips, adding playlists, commenting, creating markers, and creating or editing <<sheet,sheets>>.
 // It's also possible to send <<message,messages>> to your team, for example to start talking about certain musical passages or improvements.
 
 [NOTE]
 ====
 Creating and maintaining cloud spaces requires a paid subscription.
-But: Invited space members can join without subscription ❤️
+But: Invited space members can join without a subscription ❤️
 
-Depending on your selected cloud plan, limits apply:
+Depending on your selected cloud plan, the following limits apply:
 
 * Maximum number of participating users (across all of your own cloud spaces)
 * Maximum storage space (across all of your own cloud spaces)
@@ -66,13 +66,13 @@ include::partial$term-clip.adoc[]
 [[clip-id]]
 ==== Clip ID
 
-A unique identifier for a clip. Even if you change the name or content of a clip, the ID always stays the same.
+A unique identifier for a clip. Even if you change the name or content of a clip, its ID always stays the same.
 
 [[clip-version]]
 ==== Clip version
 
-In theory, each clip in Jam Pad can have multiple versions, where each version references its own audio files.
-In practice, this feature has not yet been completely implemented and is therefore only partially visible in the user interface.
+In theory, each clip in Jam Pad can have multiple versions, with each version referencing its own audio file.
+In practice, this feature has not yet been fully implemented and is therefore only partially visible in the user interface.
 
 [[asset]]
 === Asset
@@ -82,10 +82,9 @@ In Jam Pad, an asset is a larger file, such as an audio file (representing a cli
 [[asset-id]]
 ==== Asset ID
 
-Every asset in Jam Pad has a unique identifier. Most of the time you won’t need to think about it, but if you explore the app more deeply, it’s useful to know what it represents.
+Every asset in Jam Pad has a unique identifier. Most of the time, you won’t need to think about it, but if you explore the app more deeply, it’s useful to know what it represents.
 
-An asset ID is an uppercase, 55-character string that looks very cryptic. It's actually a checksum of the asset’s content. This means that two assets with identical content will always produce the same ID. As a result, Jam Pad automatically avoids duplicates within a space, helping you save storage.
-
+An asset ID is an uppercase, 55-character string that may look cryptic at first. It is actually a checksum of the asset’s content. This means that two assets with identical content will always produce the same ID. As a result, Jam Pad automatically avoids duplicates within a space, helping you save storage.
 
 [[marker]]
 === Marker
@@ -110,13 +109,13 @@ Users can add comments to clips or markers.
 [[custom-field]]
 ==== Property
 
-A property is an additional metadata slot that a space owner can declare for all clips or markers in a space.
-Jam Pad comes with a few built-in properties but users can also build their own.
+A property is an additional metadata slot that a space owner can define for all clips or markers in a space.
+Jam Pad comes with a few built-in properties, but users can also create their own.
 
 [[custom-item-type]]
 ==== Collection
 
-Single-choice and multiple-choice properties allow picking among a bunch of items. Those items come from a *collection*.
+Single-choice and multiple-choice properties allow you to choose from a set of items. These items come from a *collection*.
 
 [[custom-item]]
 ==== Collection item
@@ -128,26 +127,25 @@ An item within a <<custom-item-type>>.
 [[space-export]]
 === Space export
 
-A snapshot of a space in a xref:space-export-import.adoc[well-defined machine-readable format].
+A snapshot of a space in a xref:space-export-import.adoc[well-defined, machine-readable format].
 
 [[device-sync]]
 == Device sync
 
-A method of synchronizing spaces directly across devices (peer-to-peer) without saving anything in the cloud.
-It can happen both via local network ("Wi-Fi Sync") or via internet ("Remote Sync").
+A method of synchronizing spaces directly between devices (peer-to-peer) without storing anything in the cloud.
+It can happen either via a local network ("Wi-Fi Sync") or over the internet ("Remote Sync").
 
 [[main-device]]
 === Main device
 
-The leading synchronization device in a <<device-sync>> setup. It can be paired with many companion devices.
-There can only be one main device in a device-sync network. Recommended for computers.
-
+The leading synchronization device in a <<device-sync>> setup. It can be paired with multiple companion devices.
+There can be only one main device in a device-sync network. Computers are recommended for this role.
 
 [[companion-device]]
 === Companion device
 
-The follower synchronization device in a <<device-sync>> setup. Each companion device connects to a particular
-main device, from which it can stream and selectively sync clips. Recommended for mobile devices.
+A secondary synchronization device in a <<device-sync>> setup. Each companion device connects to a particular
+main device, from which it can stream and selectively synchronize clips. Mobile devices are recommended for this role.
 
 [[cloud-sync]]
 == Cloud synchronization
@@ -158,15 +156,15 @@ collaboration.
 [[account]]
 === Account
 
-A Jam Pad user account is necessary, if you want to:
+A Jam Pad user account is necessary if you want to:
 
-- sync <<in-app-purchase,in-app purchases>> across multiple devices
-- or use <<cloud-sync>>
+* sync <<in-app-purchase,in-app purchases>> across multiple devices
+* use <<cloud-sync>>
 
 == App
 
 [[in-app-purchase]]
 === In-app purchase
 
-The Jam Pad app can be downloaded for free, but there are a few paid features. They can be purchased within
-the mobile app and synced to other platforms (mobile or computer).
+The Jam Pad app can be downloaded for free, but some features are paid. They can be purchased within
+the mobile app and synchronized to other platforms (mobile or computer).
