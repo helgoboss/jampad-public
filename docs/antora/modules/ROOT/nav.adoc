@@ -4,4 +4,5 @@
 * xref:key-concepts.adoc[]
 * xref:space-export-import.adoc[]
 * xref:remote-control.adoc[]
+* xref:roles-and-permissions.adoc[]
 * xref:data-safety.adoc[]

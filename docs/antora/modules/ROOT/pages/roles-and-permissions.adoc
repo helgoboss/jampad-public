@@ -1,0 +1,345 @@
+== Roles and permissions
+
+In xref:key-concepts.adoc#cloud-space[cloud spaces], each space member has a specific role that determines what they are allowed to do within the space.
+
+The following sections show the permissions associated with each role.
+
+=== Owner
+
+[cols="1,1,1,1,1,1,1", options="header"]
+|===
+| Item type
+| Ownership
+| Create
+| Read
+| Update
+| Archive
+| Delete
+
+| Space
+| Administrative
+| yes
+| own & other's
+| own & other's
+| own & other's
+| own & other's
+
+| Collection
+| Administrative
+| yes
+| own & other's
+| own & other's
+| own & other's
+|
+
+| Property
+| Administrative
+| yes
+| own & other's
+| own & other's
+| own & other's
+|
+
+| Collection item
+| Collective
+| yes
+| own & other's
+| own & other's
+| own & other's
+|
+
+| Clip
+| Collective
+| yes
+| own & other's
+| own & other's
+| own & other's
+| own & other's
+
+| Sheet
+| Collective
+| yes
+| own & other's
+| own & other's
+| own & other's
+| own & other's
+
+| Marker
+| Personal
+| yes
+| own & other's
+| own
+| own
+| own
+
+| Playlist
+| Personal
+| yes
+| own & other's
+| own
+| own
+| own
+
+| Comment
+| Personal
+| yes
+| own & other's
+|
+| own
+|
+|===
+
+=== Participant
+
+[cols="1,1,1,1,1,1,1", options="header"]
+|===
+| Item type
+| Ownership
+| Create
+| Read
+| Update
+| Archive
+| Delete
+
+| Space
+| Administrative
+| no
+| own & other's
+|
+|
+|
+
+| Collection
+| Administrative
+| no
+| own & other's
+|
+|
+|
+
+| Property
+| Administrative
+| no
+| own & other's
+|
+|
+|
+
+| Collection item
+| Collective
+| yes
+| own & other's
+| own & other's
+| own
+|
+
+| Clip
+| Collective
+| yes
+| own & other's
+| own & other's
+| own
+| own (only while still hot)
+
+| Sheet
+| Collective
+| yes
+| own & other's
+| own & other's
+| own
+| own (only while still hot)
+
+| Marker
+| Personal
+| yes
+| own & other's
+| own
+| own
+| own
+
+| Playlist
+| Personal
+| yes
+| own & other's
+| own
+| own
+| own
+
+| Comment
+| Personal
+| yes
+| own & other's
+|
+| own
+|
+|===
+
+=== Contributor
+
+[cols="1,1,1,1,1,1,1", options="header"]
+|===
+| Item type
+| Ownership
+| Create
+| Read
+| Update
+| Archive
+| Delete
+
+| Space
+| Administrative
+| no
+| own & other's
+|
+|
+|
+
+| Collection
+| Administrative
+| no
+| own & other's
+|
+|
+|
+
+| Property
+| Administrative
+| no
+| own & other's
+|
+|
+|
+
+| Collection item
+| Collective
+| no
+| own & other's
+|
+|
+|
+
+| Clip
+| Collective
+| no
+| own & other's
+|
+|
+|
+
+| Sheet
+| Collective
+| no
+| own & other's
+|
+|
+|
+
+| Marker
+| Personal
+| yes
+| own & other's
+| own
+| own
+| own
+
+| Playlist
+| Personal
+| yes
+| own & other's
+| own
+| own
+| own
+
+| Comment
+| Personal
+| yes
+| own & other's
+|
+| own
+|
+|===
+
+=== Viewer
+
+[cols="1,1,1,1,1,1,1", options="header"]
+|===
+| Item type
+| Ownership
+| Create
+| Read
+| Update
+| Archive
+| Delete
+
+| Space
+| Administrative
+| no
+| own & other's
+|
+|
+|
+
+| Collection
+| Administrative
+| no
+| own & other's
+|
+|
+|
+
+| Property
+| Administrative
+| no
+| own & other's
+|
+|
+|
+
+| Collection item
+| Collective
+| no
+| own & other's
+|
+|
+|
+
+| Clip
+| Collective
+| no
+| own & other's
+|
+|
+|
+
+| Sheet
+| Collective
+| no
+| own & other's
+|
+|
+|
+
+| Marker
+| Personal
+| no
+| own & other's
+|
+|
+|
+
+| Playlist
+| Personal
+| no
+| own & other's
+|
+|
+|
+
+| Comment
+| Personal
+| no
+| own & other's
+|
+|
+|
+|===
