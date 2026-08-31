@@ -1,0 +1,1 @@
+Markers are positions within potentially very long clips. Use them to quickly jump to notable passages -- musical ideas, sections that need work, specific scenes, or anything else you want to revisit.

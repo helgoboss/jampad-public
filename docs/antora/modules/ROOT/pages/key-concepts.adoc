@@ -3,7 +3,7 @@
 [[space]]
 == Space
 
-Spaces are the top-level organizational unit of Jam Pad. A space is a self-contained collection of <<clip,clips>>, <<marker,markers>>, <<playlist,playlists>>, <<sheet,sheets>>, <<comment,comments>> and - in collaborative spaces also - <<message, messages>>.
+Spaces are the top-level organizational unit of Jam Pad. A space is a self-contained collection of <<clip,clips>>, <<marker,markers>>, <<playlist,playlists>>, <<sheet,sheets>> and other metadata.
 
 Musicians will typically create at least one space for themselves and then one for each band / musical project. Studios will typically create one space for each client or album.
 
@@ -40,7 +40,8 @@ All data of a cloud space will automatically be synchronized to the cloud and is
 
 Small data (such as markers) will be seamlessly synced bidirectionally between your device and the cloud, so that you can access it even after you go offline. Large data (such as clips) will always be synced to the cloud. You can selectively download clips from the cloud to make them available offline as well.
 
-Cloud spaces come with additional collaborative features! You can invite other Jam Pad users to participate in your space, for example the members of your band or a client. They will see more or less the same clips and data and can contribute by uploading own clips, adding playlists, commenting, marking, creating or changing <<sheet,sheets>>. It's also possible to send <<message,messages>> to your team, for example to start talking about certain musical passages or improvements.
+Cloud spaces come with additional collaborative features! You can invite other Jam Pad users to participate in your space, for example the members of your band or a client. They will see more or less the same clips and data and can contribute by uploading own clips, adding playlists, commenting, marking, creating or changing <<sheet,sheets>>.
+// It's also possible to send <<message,messages>> to your team, for example to start talking about certain musical passages or improvements.
 
 [NOTE]
 ====
@@ -60,113 +61,112 @@ Depending on your selected cloud plan, limits apply:
 [[clip]]
 === Clip
 
-Simply spoken, clips are audio files.
-
-TODO
+include::partial$term-clip.adoc[]
 
 [[clip-id]]
 ==== Clip ID
 
-TODO
+A unique identifier for a clip. Even if you change the name or content of a clip, the ID always stays the same.
 
 [[clip-version]]
 ==== Clip version
 
+In theory, each clip in Jam Pad can have multiple versions, where each version references its own audio files.
+In practice, this feature has not yet been completely implemented and is therefore only partially visible in the user interface.
+
 [[asset]]
 === Asset
 
-In Jam Pad, an asset is a larger file, such as an audio file (representing a clip version or an audio marker) or a waveform peak file.
+In Jam Pad, an asset is a larger file, such as an audio file (representing a clip version or an audio note) or a waveform peak file.
 
 [[asset-id]]
 ==== Asset ID
 
 Every asset in Jam Pad has a unique identifier. Most of the time you won’t need to think about it, but if you explore the app more deeply, it’s useful to know what it represents.
 
-An asset ID is an uppercase, 26-character string that looks cryptic at first glance. It’s actually a checksum of the asset’s content. This means that two assets with identical content will always produce the same ID. As a result, Jam Pad automatically avoids duplicates within a space, helping you save storage.
-
-
+An asset ID is an uppercase, 55-character string that looks very cryptic. It's actually a checksum of the asset’s content. This means that two assets with identical content will always produce the same ID. As a result, Jam Pad automatically avoids duplicates within a space, helping you save storage.
 
 
 [[marker]]
 === Marker
 
-TODO
+include::partial$term-marker.adoc[]
 
 [[playlist]]
 === Playlist
 
-TODO
+include::partial$term-playlist.adoc[]
 
 [[sheet]]
 === Sheet
 
-TODO
+include::partial$term-sheet.adoc[]
 
 [[comment]]
 === Comment
 
-TODO
-
-[[message]]
-=== Message
-
-TODO
-
-=== Custom metadata
-
-TODO
+Users can add comments to clips or markers.
 
 [[custom-field]]
-==== Custom property
+==== Property
 
-TODO
+A property is an additional metadata slot that a space owner can declare for all clips or markers in a space.
+Jam Pad comes with a few built-in properties but users can also build their own.
 
 [[custom-item-type]]
-==== Custom item type
+==== Collection
 
-TODO
+Single-choice and multiple-choice properties allow picking among a bunch of items. Those items come from a *collection*.
 
 [[custom-item]]
-==== Custom item
+==== Collection item
 
-TODO
-
+An item within a <<custom-item-type>>.
 
 == Other space-related things
 
 [[space-export]]
 === Space export
 
-TODO
+A snapshot of a space in a xref:space-export-import.adoc[well-defined machine-readable format].
 
+[[device-sync]]
+== Device sync
 
-== Device-to-device synchronization
-
-TODO
+A method of synchronizing spaces directly across devices (peer-to-peer) without saving anything in the cloud.
+It can happen both via local network ("Wi-Fi Sync") or via internet ("Remote Sync").
 
 [[main-device]]
 === Main device
 
-TODO
+The leading synchronization device in a <<device-sync>> setup. It can be paired with many companion devices.
+There can only be one main device in a device-sync network. Recommended for computers.
+
 
 [[companion-device]]
 === Companion device
 
-TODO
+The follower synchronization device in a <<device-sync>> setup. Each companion device connects to a particular
+main device, from which it can stream and selectively sync clips. Recommended for mobile devices.
 
+[[cloud-sync]]
 == Cloud synchronization
 
-TODO
+A method of synchronizing spaces via the Jam Pad Cloud. It requires an account and internet access. It also enables
+collaboration.
 
 [[account]]
 === Account
 
-TODO
+A Jam Pad user account is necessary, if you want to:
+
+- sync <<in-app-purchase,in-app purchases>> across multiple devices
+- or use <<cloud-sync>>
 
 == App
 
 [[in-app-purchase]]
 === In-app purchase
 
-TODO
-
+The Jam Pad app can be downloaded for free, but there are a few paid features. They can be purchased within
+the mobile app and synced to other platforms (mobile or computer).

@@ -1,0 +1,1 @@
+Sheets are simple text documents but with a twist: You can embed **instantly playable** clips or markers.

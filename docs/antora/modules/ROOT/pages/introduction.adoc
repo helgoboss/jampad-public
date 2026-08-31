@@ -1,45 +1,49 @@
 = Introduction
 
 |===
-|Last update of text: |`2025-11-27 (v0.2.0)`
-|Last update of screenshots: |`-`
+|Last update of text: |`2026-08-31 (v1.3.2)`
+// |Last update of screenshots: |`-`
 |===
+
+== About this reference
+
+The Jam Pad Reference complements the video tutorials with in-depth information that is better suited to written documentation. It covers key concepts as well as technical and specialized topics such as export formats, remote controls, and account management. It is not intended to document every screen, control, and feature of the app.
+
+For a more practical, step-by-step introduction to Jam Pad, see the link:https://www.youtube.com/playlist?list=PLZb6yA75zPnI[tutorials].
 
 == What is Jam Pad?
 
-link:https://www.helgoboss.org/projects/jampad[Jam Pad] is a versatile app for managing recordings and musical ideas.
-
-It is designed to be a practical tool for everyone who deals with audio recordings, such as musicians, composers, sound artists, music teachers, podcasters, bands, classical ensembles and music studios.
+link:https://www.helgoboss.org/projects/jampad[Jam Pad] helps musicians organize recordings and the moments inside them. It is an offline-first, collaborative, and cross-platform app for recording, reviewing, and organizing audio.
 
 === Core concepts
 
 Jam Pad is built around just a few core concepts:
 
 xref:key-concepts.adoc#clip[Clips]::
-Clips are audio recordings — improvisations, jam sessions, work-in-progress song versions (raw, mixed, or mastered), finished tracks, podcast episodes, field recordings, one-shot samples… anything!
+include::partial$term-clip.adoc[]
 
 xref:key-concepts.adoc#marker[Markers]::
-Markers are positions within potentially very long clips. Use them to quickly jump to notable passages -- musical ideas, sections that need work, specific scenes, or anything else you want to revisit.
+include::partial$term-marker.adoc[]
 
 xref:key-concepts.adoc#playlist[Playlists]::
-Playlists let you arrange clips and markers in any order, creating your own sequence for review or playback.
+include::partial$term-playlist.adoc[]
 
 xref:key-concepts.adoc#sheet[Sheets]::
+include::partial$term-sheet.adoc[]
 
-Sheets are simple text documents but with a twist: You can embed **instantly playable** clips or markers.
 
 To keep everything neatly organized, Jam Pad uses the concept of xref:key-concepts.adoc#space[spaces]. A space is a self-contained collection of all the items described above.
 
 There are three types of spaces:
 
 xref:key-concepts.adoc#single-device-space[Single-device spaces]::
-Fully offline spaces that exist only on one specific mobile device or computer.
+include::partial$term-single-device-space.adoc[]
 
 xref:key-concepts.adoc#multi-device-space[Multi-device spaces]::
-Spaces that sync directly between your phones and computers without using the cloud.
+include::partial$term-multi-device-space.adoc[]
 
 xref:key-concepts.adoc#cloud-space[Cloud spaces]::
-Spaces that sync through the cloud and support collaboration features.
+include::partial$term-cloud-space.adoc[]
 
 === Supported platforms
 
@@ -49,8 +53,4 @@ Jam Pad runs natively on the following platforms:
 - iOS phones and tablets
 - macOS computers
 - Windows computers
-
-Support for the following platforms is planned:
-
 - Linux computers
-- Browsers (probably with a very restricted feature set)

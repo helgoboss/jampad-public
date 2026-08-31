@@ -1,0 +1,1 @@
+Fully offline spaces that exist only on one specific mobile device or computer.

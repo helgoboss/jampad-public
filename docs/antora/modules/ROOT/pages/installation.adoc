@@ -1,5 +1,7 @@
 = Installation
 
+Please visit link:https://jampad.app/[jampad.app] for download and app store links.
+
 == Android
 
 === Troubleshooting
