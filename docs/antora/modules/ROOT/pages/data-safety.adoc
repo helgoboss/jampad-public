@@ -16,14 +16,12 @@ This will do the following:
 - It will log you out.
 - The data locally stored on this device will not be touched.
 
-There's a grace period of 30 days. If you log in during that time, Jam Pad will ask
+There's a grace period of 14 days. If you log in during that time, Jam Pad will ask
 you if you want to recover your account, in which case everything will be restored.
-If you don't recover your account within 30 days, the data will be deleted without any possibility
+If you don't recover your account within 14 days, the data will be deleted without any possibility
 to recover it.
 
-This will not delete your *Helgoboss Projects* account because this one also serves other purposes:
+Unless you specifically request otherwise when requesting account deletion, your *Helgoboss Projects* account will not be deleted, as it may also be used for other purposes:
 
 - It's used to make paid Jam Pad features purchased on one platform (for example, Android) available on other platforms as well (for example, iOS, Windows, Linux, macOS). Deleting the account makes this impossible.
 - In the future, it might also be used for other Helgoboss Projects products.
-
-If you want to delete your *Helgoboss Projects* account, too, please write an email to support@helgoboss.org.
