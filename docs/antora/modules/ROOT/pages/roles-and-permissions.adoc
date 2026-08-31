@@ -1,10 +1,10 @@
-== Roles and permissions
+= Roles and permissions
 
 In xref:key-concepts.adoc#cloud-space[cloud spaces], each space member has a specific role that determines what they are allowed to do within the space.
 
 The following sections show the permissions associated with each role.
 
-=== Owner
+== Owner
 
 [cols="1,1,1,1,1,1,1", options="header"]
 |===
@@ -89,7 +89,7 @@ The following sections show the permissions associated with each role.
 |
 |===
 
-=== Participant
+== Participant
 
 [cols="1,1,1,1,1,1,1", options="header"]
 |===
@@ -174,7 +174,7 @@ The following sections show the permissions associated with each role.
 |
 |===
 
-=== Contributor
+== Contributor
 
 [cols="1,1,1,1,1,1,1", options="header"]
 |===
@@ -259,7 +259,7 @@ The following sections show the permissions associated with each role.
 |
 |===
 
-=== Viewer
+== Viewer
 
 [cols="1,1,1,1,1,1,1", options="header"]
 |===
