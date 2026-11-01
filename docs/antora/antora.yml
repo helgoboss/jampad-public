@@ -9,3 +9,11 @@ asciidoc:
   attributes:
     # For making menu and button macros work
     experimental: true
+
+    # Terms
+    term_multi_device_space: 'xref:jampad:ROOT:key-concepts.adoc#multi-device-space[Multi-device space,role=term]'
+    term_cloud_space: 'xref:jampad:ROOT:key-concepts.adoc#cloud-space[Cloud space,role=term]'
+    term_main_device: 'xref:jampad:ROOT:key-concepts.adoc#main-device[Main device,role=term]'
+    term_custom_item_type: 'xref:jampad:ROOT:key-concepts.adoc#custom-item-type[Collection,role=term]'
+    term_device_sync: 'xref:jampad:ROOT:key-concepts.adoc#device-sync[Device sync,role=term]'
+    term_cloud_sync: 'xref:jampad:ROOT:key-concepts.adoc#cloud-sync[Cloud synchronization,role=term]'

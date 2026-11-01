@@ -12,7 +12,7 @@ Musicians will typically create at least one space for themselves and additional
 
 All clips and other data in a single-device space stay on your device and your device only. You can create as many single-device spaces as you want.
 
-Each space starts as a single-device space and can later be upgraded to a <<multi-device-space>> or <<cloud-space>>.
+Each space starts as a single-device space and can later be upgraded to a {term_multi_device_space} or {term_cloud_space}.
 
 [[multi-device-space]]
 === Multi-device space
@@ -21,7 +21,7 @@ A multi-device space is synchronized directly between multiple devices, allowing
 
 For this to work, you first need to configure one Jam Pad installation to act as the <<main-device, main device>> and then pair it with one or more <<companion-device,companion devices>>. For example, a computer makes a good main device, while a mobile phone makes a good companion device. After this one-time setup, you can upgrade arbitrary <<single-device-space,single-device spaces>> to multi-device spaces.
 
-Small data (such as markers) in a multi-device space is seamlessly synchronized bidirectionally between your paired devices, so you can access it even when the devices are no longer connected. Large data (such as clips) is always synchronized to the <<main-device>>, ensuring that it eventually contains all of your clips. <<companion-device,Companion devices>> can selectively download clips from the main device, since companion devices typically have more limited storage.
+Small data (such as markers) in a multi-device space is seamlessly synchronized bidirectionally between your paired devices, so you can access it even when the devices are no longer connected. Large data (such as clips) is always synchronized to the {term_main_device}, ensuring that it eventually contains all of your clips. <<companion-device,Companion devices>> can selectively download clips from the main device, since companion devices typically have more limited storage.
 
 The connection happens over your local Wi-Fi network and can optionally work over the internet as well. In both cases, your devices communicate using an end-to-end-encrypted peer-to-peer connection. Perfect for privacy!
 
@@ -120,7 +120,7 @@ Single-choice and multiple-choice properties allow you to choose from a set of i
 [[custom-item]]
 ==== Collection item
 
-An item within a <<custom-item-type>>.
+An item within a {term_custom_item_type}.
 
 == Other space-related things
 
@@ -138,13 +138,13 @@ It can happen either via a local network ("Wi-Fi Sync") or over the internet ("R
 [[main-device]]
 === Main device
 
-The leading synchronization device in a <<device-sync>> setup. It can be paired with multiple companion devices.
+The leading synchronization device in a {term_device_sync} setup. It can be paired with multiple companion devices.
 There can be only one main device in a device-sync network. Computers are recommended for this role.
 
 [[companion-device]]
 === Companion device
 
-A secondary synchronization device in a <<device-sync>> setup. Each companion device connects to a particular
+A secondary synchronization device in a {term_device_sync} setup. Each companion device connects to a particular
 main device, from which it can stream and selectively synchronize clips. Mobile devices are recommended for this role.
 
 [[cloud-sync]]
@@ -159,7 +159,7 @@ collaboration.
 A Jam Pad user account is necessary if you want to:
 
 * sync <<in-app-purchase,in-app purchases>> across multiple devices
-* use <<cloud-sync>>
+* use {term_cloud_sync}
 
 == App
 
